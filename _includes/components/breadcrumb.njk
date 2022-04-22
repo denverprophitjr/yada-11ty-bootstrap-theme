@@ -1,0 +1,9 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    {% set crumbs = collections.all | eleventyNavigationBreadcrumb %}
+    {% for crumb in crumbs %}
+    <li class="breadcrumb-item{% if crumb.url == page.url %} active" aria-current="page">{{ crumb.title }}{% endif %}>{% else %}<a class="pretty-link" href="{{ crumb.url | url }}">{{ crumb.title }}</a>
+  {%- endfor %}
+  </ol>
+</nav>

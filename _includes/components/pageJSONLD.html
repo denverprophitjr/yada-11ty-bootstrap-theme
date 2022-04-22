@@ -1,0 +1,42 @@
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "#article",
+{% if page.wikidata %}"about": { "@id": "{{page.wikidata}}" },{% endif %}
+    "image": {
+       "@type": "ImageObject",
+       "representativeOfPage": "True",
+       "width": {
+         "@type": "QuantitativeValue", 
+          "value": "1200",
+          "unitCode": "E37"
+       },
+       "height": {
+         "@type": "QuantitativeValue", 
+          "value": "800",
+          "unitCode": "E37"
+       },
+      "caption": "Logo of {{site.title}}",
+      "url": "{{ page.img_url | default: site.img_url }}"
+    },
+    "url": "{{ site.url }}{{ page.url }}",
+    "name": {{ page.title | jsonify }},
+    "headline": {{ page.title | jsonify }},
+    "genre": {{ site.genre | jsonify }},
+    "keywords": {{ page.tags | join: ',' | jsonify }},
+    "description": {{ page.summary | strip_newlines | strip | strip_html | remove: "\n\n" | jsonify }},
+    "wordCount": {% capture words %}{{ page.content | number_of_words | minus: 250 }}{% endcapture %}"{{ words | plus: 250 }}",
+    "articleSection": {{ page.category | jsonify }},
+    "datePublished": {{ page.date | jsonify }},
+    "dateModified": {{ page.last_modified_at | default: page.date | jsonify }},
+{% assign author = site.data.members[page.author] %}
+    "author": {
+    "@type": "person",
+    "@id": {{ author.permalink | jsonify }},
+    "name": {{ author.name | jsonify }}
+    },
+    "publisher": { "@id": "{{site.url}}/about.html#publisher" },
+    {% if page.groupid == 1 %}"hasPart": { "@type": "FAQPage", "@id": "{{site.url}}{{page.url | replace: "index","faq"}}" },{% endif %}
+   {% include mainentity.html %}
+   {% include breadcrumb.html %}
+  }

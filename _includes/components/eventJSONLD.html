@@ -1,0 +1,172 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SocialEvent",
+  "name": "{{page.title}}",
+  "sameAs": "https://www.wikidata.org/wiki/{{page.wikidata}}",
+  "startDate": "{{page.edates|date_to_xmlschema}}",
+  "endDate": "{{page.edatee|date_to_xmlschema}}",
+  "eventStatus": {
+    "@type": "EventStatusType",
+    "value": "EventScheduled"
+  },
+  "image": [{
+       "@type": "ImageObject",
+       "representativeOfPage": "True",
+       "width": {
+         "@type": "QuantitativeValue", 
+          "value": "1920",
+          "unitCode": "E37"
+       },
+       "height": {
+         "@type": "QuantitativeValue", 
+          "value": "1080",
+          "unitCode": "E37"
+       },
+      "caption": "{{page.title}}",
+       "url": "{{site.url}}/assets/images/events/{{ page.featured_image }}"
+    },{
+       "@type": "ImageObject",
+       "representativeOfPage": "True",
+       "width": {
+         "@type": "QuantitativeValue", 
+          "value": "1920",
+          "unitCode": "E37"
+       },
+       "height": {
+         "@type": "QuantitativeValue", 
+          "value": "1084",
+          "unitCode": "E37"
+       },
+      "caption": "{{page.title}}",
+       "url": "{{site.url}}/assets/images/events/{{ page.featured_image1 }}"
+    }],
+  "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+  "location": {
+    "@type": "VirtualLocation",
+    "Name": "Twitter Chat #authorwebsitechat",
+    "url": "https://twitter.com/search?q=%23authorwebsitechat&src=recent_search_click&f=live"
+  },
+  "offers": {
+    "@type": "Offer",
+    "name": "Twitter Live Chat",
+    "price": "0.00",
+    "priceCurrency": "USD",
+    "validFrom": "{{page.edates|date_to_xmlschema}}",
+    "url": "{{site.url}}{{page.url}}",
+    "availability": "https://schema.org/OnlineOnly"
+  },
+  "description": "{{page.excerpt}}",
+  "organizer": {
+    "@type": "Person",
+    "name": "Denver Prophit Jr.",
+    "url": "https://g.co/kgs/QpjJVr"
+  },
+  "performer": [
+    {
+      "@type": "Person",
+      "name": "David Amerland",
+      "url": "https://g.co/kgs/QpjJVr"
+    },
+    {
+      "@type": "Person",
+      "name": "Denver Prophit Jr.",
+      "url": "https://g.co/kgs/LxPBKe"
+    }
+  ],
+  "workPerformed": {
+    "@type": "Conversation",
+    "about": {
+      "@id": "https://www.wikidata.org/wiki/Q180711"
+    },
+    "name": "{{page.title}}",
+    "abstract": "{{page.excerpt}}",
+    "contentReferenceTime": "{{page.edatee|date_to_xmlschema}}"
+  },
+"mainEntityOfPage": {
+  "@type": "ItemPage",
+  "hasPart": {
+    "@type": "SiteNavigationElement",
+    "xpath": "/html/body/nav" },
+    "lastReviewed": "{{ page.last_modified_at | default: page.date}}",
+    "reviewedBy": {
+      "@type": "Person",
+      "@id": "{{ author.permalink}}#person",
+      "name": "{{ author.name}}"
+    },
+    "accountablePerson": {
+      "@type": "Person",
+      "name": "{{author.name}}",
+      "@id": "{{ author.permalink}}"
+      },
+      "copyrightHolder": {
+      "@type": "Organization",
+      "@id": "{{site.url}}/about.html",
+      "name": "{{ site.title}}",
+      "logo": {
+        "@type": "ImageObject",
+        "representativeOfPage": "False",
+        "width": {
+          "@type": "QuantitativeValue",
+          "value": "300",
+          "unitCode": "E37"
+        },
+        "height": {
+          "@type": "QuantitativeValue",
+          "value": "300",
+          "unitCode": "E37"
+        },
+        "caption": "Logo of Denver Prophit Jr. - Technical SEO Consultant",
+        "url": "{{site.url}}/assets/images/denver-prophit-jr-logo.png"
+      }
+    },
+    "mentions": { 
+      "@type": "Thing",
+      "@id": "{{site.url}}/{{page.tags}}/index.html"
+    },
+    "copyrightYear": "{{ post.date | date: '%Y'}}",
+
+        "breadcrumb":
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement":
+              [
+                {
+                  "@type": "ListItem",
+                  "position": "1",
+                  "item":
+                    {
+                      "@id": "{{ site.url | append: "/index.html" }}",
+                      "name": "Home"
+                    }
+                 },
+{% assign crumbs = page.url | split: '/' %}
+ {% assign crumbs_total = crumbs | size | minus: 1 %}
+    {% for crumb in crumbs offset: 1 %}
+    {% if forloop.index == crumbs_total %}
+                 {
+                   "@type": "ListItem",
+                   "position": {{ crumbs_total | plus:1 }},
+                   "item":
+                     {
+                       "@id": "{{ site.url }}{{ page.url }}",
+                       "name": {{ page.crumbtitle | jsonify }}
+                     }
+                  }
+{% else %}
+                  {
+                    "@type": "ListItem",
+                    "position": {{ crumbs_total }},
+                    "item":
+                      {
+                        "@id": "{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}",
+                        "name": "{{ crumb | replace:'-',' ' | capitalize }}"
+                      }
+                   },
+  {% endif %}
+  {% endfor %}
+
+              ]
+            }
+          }
+
+}

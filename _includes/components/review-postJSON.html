@@ -1,0 +1,192 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "#article",
+  "url": "{{ site.url }}{{ page.url }}",
+  "name": "{{page.title}}",
+  "headline": "{{page.title}}",
+  "genre": "{{ page.genre}}",
+  "keywords": {{ page.tags | join: ',' | replace:'-',' '  | capitalize_all | jsonify }},
+  "description": "{{page.excerpt | strip_newlines | strip | strip_html}}",
+  "articleSection": "{{page.categories | join: ' '|replace: "-", " " | capitalize_all}}",
+  "wordCount": "{{ page.content | number_of_words}}",
+  "datePublished": "{{ page.date}}",
+  "dateModified": "{{ page.last_modified_at | default: page.date}}",
+  "isBasedOn": {{ page.isbasedon |jsonify }},
+  "audience": {
+    "@type": "BusinessAudience",
+    "name": "Content Writers and e-commerce stores",
+    "audienceType": "Content Managers and e-commerce Stores"
+  },
+  "license": "http://creativecommons.org/licenses/by-sa/4.0/",
+  {% assign author = site.data.members[page.author] %}"author": {
+    "@type": "Person",
+    "@id": "#{{ page.author}}",
+    "name": "{{author.name}}",
+    "url": "{{site.url}}/about.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "{{site.url}}/about.html",
+    "name": "{{ site.title}}",
+    "logo": {
+      "@type": "ImageObject",
+      "representativeOfPage": "False",
+      "width": {
+        "@type": "QuantitativeValue",
+        "value": "300",
+        "unitCode": "E37"
+      },
+      "height": {
+        "@type": "QuantitativeValue",
+        "value": "300",
+        "unitCode": "E37"
+      },
+      "caption": "Logo of Denver Prophit Jr. - Digital Marketer",
+      "url": "{{site.url}}/assets/images/denver-prophit-jr-logo.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "representativeOfPage": "True",
+    "width": {
+      "@type": "QuantitativeValue",
+      "value": "1024",
+      "unitCode": "E37"
+    },
+    "height": {
+      "@type": "QuantitativeValue",
+      "value": "512",
+      "unitCode": "E37"
+    },
+    "caption": "{{page.title}}",
+    "contentUrl": "{{site.url}}/assets/images/posts/content/{{ page.featured_image}}.webp",
+    "url": "{{site.url}}/assets/images/posts/content/{{ page.featured_image}}.webp",
+    "license": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "acquireLicensePage": "https://denverprophit.us/terms.html"
+  },
+  "mainEntityOfPage": {
+    "@type": "ItemPage",
+    "@id": "{{page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url}}",
+    "hasPart": [
+      {
+        "@type": "SiteNavigationElement",
+        "xpath": "/html/body/nav"
+      },
+      {
+        "@type": "Recommendation",
+        "category": "{{page.reviewcategory}}",
+        "name": "{{page.title}}",
+        "positiveNotes": "{{page.reviewpos}}",
+        "negativeNotes": "{{page.reviewneg}}",
+        "itemReviewed": {
+         "@type": "{{page.itemreviewtype}}",
+         "name": "{{page.reviewname}}",
+         "url": "{{page.reviewurl}}",
+      {% case page.itemreviewtype %}
+      {% when 'Episode' %}
+      "episodeNumber": {{page.episodenum}},
+      "actor": "{{page.episodeactor}}",
+      "director": "{{page.episodedirector}}",
+      "duration": "{{page.episodeduration}}"
+    },
+       {% else %} },{% endcase %}
+      "reviewRating": {
+       "@type": "EndorsementRating",
+        "author": {
+          "@type": "Person",
+          "@id": "#{{ page.author}}",
+          "name": "{{author.name}}",
+          "url": "{{site.url}}/about.html"
+    },
+    "ratingValue": {{page.ratingvalue}},
+    "reviewAspect": "{{page.reviewaspect}}"
+     }}
+     ],
+    "mentions": {{ page.isbasedon | jsonify }},
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "representativeOfPage": "True",
+      "width": {
+        "@type": "QuantitativeValue",
+        "value": "1024",
+        "unitCode": "E37"
+      },
+      "height": {
+        "@type": "QuantitativeValue",
+        "value": "512",
+        "unitCode": "E37"
+      },
+      "caption": "{{page.title}}",
+      "url": "{{site.url}}/assets/images/posts/content/{{ page.featured_image}}.webp"
+    },
+    "lastReviewed": "{{ page.last_modified_at | default: page.date}}",
+    "reviewedBy": {
+      "@type": "Person",
+      "@id": "#{{ author.permalink}}",
+      "name": "{{ author.name}}",
+      "url": "{{site.url}}/about.html"
+    },
+    "accountablePerson": {
+      "@type": "Person",
+      "name": "{{author.name}}"
+    },
+    "specialty": {
+      "@type": "Specialty ",
+      "@id": "https://www.wikidata.org/wiki/{{page.wikidata}}"
+    },
+    "copyrightHolder": {
+      "@type": "Organization",
+      "@id": "{{site.url}}/about.html",
+      "name": "{{ site.title}}",
+      "logo": {
+        "@type": "ImageObject",
+        "representativeOfPage": "False",
+        "width": {
+          "@type": "QuantitativeValue",
+          "value": "300",
+          "unitCode": "E37"
+        },
+        "height": {
+          "@type": "QuantitativeValue",
+          "value": "300",
+          "unitCode": "E37"
+        },
+        "caption": "Logo of Denver Prophit Jr. - Digital Marketer",
+        "url": "{{site.url}}/assets/images/denver-prophit-jr-logo.png"
+      }
+    },
+    "copyrightYear": "{{ page.date | date: '%Y'}}",
+    "copyrightNotice": "© copyrighted by Denver Prophit Jr. All rights reserved. Other works are copyrighted by their respective owners.",
+    "discussionUrl": "https://twitter.com/{{site.socialmedia.twitter}}/status/{{page.tweet_id}}",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": "1",
+          "item": {
+            "@id": "{{ site.url | append: '/index.html' }}",
+            "name": "Home"
+          }
+        },{% assign crumbs = page.url | remove:'/index.html' | split: '/' %} {% assign crumbs_total = crumbs | size | minus: 1 %}{% for crumb in crumbs offset: 1 %}{% if forloop.index == crumbs_total %}
+        {
+          "@type": "ListItem",
+          "position": "{{ crumbs_total | plus:1 }}",
+          "item": {
+            "@id": "{{ site.url }}{{ page.url }}",
+            "name": "{{ page.crumbtitle}}"
+          }
+        }{% else %}
+        {
+          "@type": "ListItem",
+          "position": "{{ crumbs_total }}",
+          "item": {
+            "@id": "{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}",
+            "name": "{{ crumb | replace:'-',' '  | capitalize_all }}"
+          }
+        },{% endif %}{% endfor %}
+      ]
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "@type": "ProfessionalService",
+  "@id": "#publisher",
+{% capture results %}[
+{% assign sm = site.data.social-media %}
+    {% for entry in sm %}
+        {% assign key = entry | first %}
+        {% if sm[key].id %}
+            "{{ sm[key].href }}{{ sm[key].id }}"{% if forloop.last %} ]{% else %},{% endif %}
+        {% endif %}
+    {% endfor %}{% endcapture %}
+  "sameAs": {{ results }},
+  "name": "d/b/a DPCG, Co.",
+  "description": "{{page.excerpt}}",
+  "url": "{{site.url}}/index.html",
+      "image": {
+        "@type": "ImageObject",
+        "width": {
+          "@type": "QuantitativeValue",
+        "value": "1600",
+        "unitCode": "E37"
+        },
+        "height": {
+          "@type": "QuantitativeValue",
+          "value": "800",
+          "unitCode": "E37"
+        },
+      "caption": "{{ site.slogan }}",
+      "url": "{{ site.url }}/assets/images/main/site-logo.png",
+      "license": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "acquireLicensePage": "https://denverprophit.us/terms.html"
+      },
+       "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{ site.city }}",
+        "addressRegion": "{{ site.state }}",
+        "addressCountry": "{{ site.country }}",
+        "postalCode": "{{ site.zip }}"
+    },
+  "telephone": "{{ site.tel }}",
+  "openingHours": "{{ site.openhours }}",
+  "priceRange": "$$",
+  "areaServed": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "USA"
+    }
+  },
+  "logo": {
+    "@type": "ImageObject",
+    "@id": "#logo",
+    "url": "{{site.url}}/assets/images/main/logo.png",
+    "caption": "{{ site.slogan }}",
+    "width": {
+      "@type": "QuantitativeValue",
+      "value": "300",
+      "unitCode": "E37"
+    },
+    "height": {
+      "@type": "QuantitativeValue",
+      "value": "300",
+      "unitCode": "E37"
+    },
+    "license": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "acquireLicensePage": "{{ site.url }}/terms.html"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "{{ site.tel }}",
+      "contactType": "Customer Support",
+      "areaServed": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "USA"
+        }
+      },
+      "availableLanguage": "English"
+    }
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "businessFunction": "http://purl.org/goodrelations/v1#ProvideService",
+    "itemOffered": {
+      "@type": [
+        "Service",
+        "http://www.productontology.org/id/Digital_marketing"
+      ]
+    },
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}"
+    }
+}

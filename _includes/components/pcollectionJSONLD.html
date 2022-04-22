@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "{{ page.name }}",
+  "sameAs": "https://www.wikidata.org/wiki/{{page.wikidata}}",
+  "image": {
+      "@type": "ImageObject",
+      "representativeOfPage": "True",
+      "width": {
+        "@type": "QuantitativeValue",
+        "value": "1200",
+        "unitCode": "E37"
+      },
+      "height": {
+        "@type": "QuantitativeValue",
+        "value": "800",
+        "unitCode": "E37"
+      },
+      "caption": "Collection of {{page.name}} articles.",
+      "url": "{{site.url}}/assets/images/main/{{page.featured_image}}",
+      "contentUrl": "{{site.url}}/assets/images/main/{{page.featured_image}}"
+    },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+  {% assign items = page.categories | first %}
+    {% for post in site.products %}
+      {
+        "@id": "{{post.url}}",
+        "name": "{{ post.title}}",
+        "url": "{{ post.url }}",
+        "datePublished": {{ post.date | jsonify }},
+        "dateModified": {{ post.last_modified_at | default: post.date | jsonify }},
+{% assign author = site.data.members[post.author] %}
+        "author": {
+          "@type": "person",
+          "@id": {{ author.permalink | jsonify }},
+          "name": {{ author.name | jsonify }}
+        }
+{% if forloop.last %}
+}
+]
+},{% else %}},{% endif %}{% endfor %}
+  "publisher": { "@id": "{{site.url}}/about.html#publisher" },
+{% include mainentity.html %}
+}

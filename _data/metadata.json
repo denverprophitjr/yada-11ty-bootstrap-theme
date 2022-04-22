@@ -1,0 +1,29 @@
+{
+  "title": "Denver Prophit Jr.",
+  "url": "https://yada-11ty-themes.denverprophit.us",
+  "domain": "yada-11ty-themes.denverprophit.us",
+  "description": "Description of the website. Update me.",
+  "categories": ["business", "educational"],
+  "genre": "Technical SEO",
+  "webmaster": "webmaster@denverprophit.us",
+  "timezone": "America/New_York",
+  "googleAnalyticsId": "GA ID. Update me. Note, that this is not compatible with the not-yet-commonly used version 4 of Google Analytics",
+  "sendWebVitals": false,
+  "feed": {
+    "subtitle": "Posts from Denver Prophit Jr.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://yada-11ty-themes.denverprophit.us"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://yada-11ty-themes.denverprophit.us/feed/feed.json"
+  },
+  "author": {
+    "name": "Denver Prophit Jr.",
+    "twitterHandle": "@DenverProphitJr"
+  },
+  "publisher": {
+    "name": "Denver Prophit Jr."
+  }
+}

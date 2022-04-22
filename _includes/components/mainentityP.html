@@ -1,0 +1,79 @@
+ "mainEntityofPage": {
+    "@type": "{{page.mainentity}}",
+{% if page.wikidatas %}
+    "mentions": [
+{% for item in page.wikidatas %}
+      {
+        "@type": "Thing",
+        "name": "{{ item.name }}",
+        "@id": "{{ item.url }}"
+      }
+{% if forloop.last %}],{% else %},{% endif %} {% endfor %}{% endif %}
+    "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "representativeOfPage": "true",
+    "width": {
+      "@type": "QuantitativeValue",
+      "value": "1600",
+      "unitCode": "E37"
+    },
+    "height": {
+      "@type": "QuantitativeValue",
+      "value": "800",
+      "unitCode": "E37"
+    },
+    "caption": "{{page.title}}",
+    "url": "{{site.url}}/assets/images/main/{{page.featured_image}}",
+    "contentUrl": "{{site.url}}/assets/images/main/{{page.featured_image}}"
+    },
+    "lastReviewed": "{{ page.last_modified_at }}",
+    "reviewedBy": {
+      "@type": "Person",
+      "@id": "{{site.url}}/about.html#person",
+      "name": "{{author.name}}",
+      "url": "{{site.url}}/about.html"
+    },
+    "accountablePerson": {
+      "@type": "Person",
+      "name": "{{author.name}}",
+      "@id": "{{site.url}}/about.html#person",
+      "url": "{{site.url}}/about.html"
+    },
+    "specialty": {
+      "@type": "Specialty ",
+      "@id": "https://www.wikidata.org/wiki/{{page.wikidata}}"
+    },
+    "copyrightHolder": {
+      "@type": "ProfessionalService",
+      "@id": "{{site.url}}/about.html#publisher",
+      "name": "{{ site.title }}",
+      "telephone": "{{ site.tel }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{ site.city ",
+        "addressRegion": "{{ site.state }}",
+        "postalCode": "{{site.zip}}"
+        }
+      },
+      "logo": {
+        "@type": "ImageObject",
+        "representativeOfPage": "false",
+        "width": {
+          "@type": "QuantitativeValue",
+          "value": "500",
+          "unitCode": "E37"
+        },
+        "height": {
+          "@type": "QuantitativeValue",
+          "value": "500",
+          "unitCode": "E37"
+        }
+    },
+        "caption": "Logo of DPCG, Co. - Technical SEO & Front-End Developer",
+        "url": "{{site.url}}/assets/images/main/{{site.logo}}"
+      },
+    "copyrightNotice": "{{ site.copynotice }}",
+    "copyrightYear": "{{ page.date | date: '%Y'  }}",
+    "discussionUrl": "https://twitter.com/status/{{page.tweet_id}}"
+    {% capture breadcrumb %}{{page.breadcrumb}}{% endcapture %}{% if breadcrumb == "true" %},{%include breadcrumb.html %}{% endif %}
+    }

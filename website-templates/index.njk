@@ -1,0 +1,59 @@
+---
+#layout: layouts/base.njk
+templateClass: tmpl-category
+title: Website Templates
+---
+{% set shareUrl = metadata.url + page.url %}
+{% set postslist = collections.templates %}
+{% block content %}
+{% for post in postslist | reverse %}
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="{{ post.url | url }}" title="{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}" class="btn btn-primary">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+  </div>
+</div>
+{% endfor %}
+
+
+<h1>🙏🙏🙏</h1>
+<p>
+  Since you've made it this far, <a href="{{ shareUrl | safe }}" on-click="share">sharing</a> this article on your favorite social media network 
+  would be highly appreciated 💖! For feedback, please 
+  <a href="https://twitter.com/{{ metadata.author.twitterHandle }}" target="_blank" rel="noopener">ping me on Twitter.</a>
+</p>
+
+<share-widget>
+  <button on-click="share" aria-label="Share" href="{{ shareUrl | safe }}">
+    <div></div>
+  </button>
+</share-widget>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ title }}",
+  "image": [],
+  "author": "{{ metadata.author.name }}", 
+  "genre": "{{ metadata.genre }}", 
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ metadata.publisher.name }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": ""
+    }
+  },
+  "url": "{{ metadata.url }}{{ canonicalUrl or page.url }}",
+  "mainEntityOfPage": "{{ metadata.url }}{{ canonicalUrl or page.url }}",
+  "datePublished": "{{ page.date | htmlDateString }}",
+  "dateModified": "{{ page.inputPath | lastModifiedDate  | htmlDateString }}",
+  "description": "{{ content | striptags | truncate(140) }}"
+}
+</script>
+{{ content | safe }}
+{% endblock %}
+

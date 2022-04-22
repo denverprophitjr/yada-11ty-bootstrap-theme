@@ -1,0 +1,140 @@
+{% assign product = site.data.products[page.sku] %}
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "{{product.title}}",
+  "description": "{{product.desc}}",
+  "isBasedOnUrl": "https://en.wikipedia.org/wiki/Web_template_system",
+  "sku": "{{product.sku}}",
+  "mpn": "{{product.sku}}",
+  "url": "{{site.url}}/{{page.url}}",
+  "image": {
+    "@type": "ImageObject",
+    "@id": "#img",
+    "representativeOfPage": "True",
+    "width": {
+      "@type": "QuantitativeValue",
+      "value": "1024",
+      "unitCode": "E37"
+    },
+    "height": {
+      "@type": "QuantitativeValue",
+      "value": "521",
+      "unitCode": "E37"
+    },
+    "caption": "{{product.desc}}",
+    "url": "{{site.url}}/images/assets/main/{{page.featured_image}}",
+    "contentUrl": "{{site.url}}/images/assets/main/{{page.featured_image}}"
+  },
+   " locationCreated": {
+    "@type": "Country",
+    "@id": "https://www.wikidata.org/wiki/Q30",
+    "name" : "United States of America"
+  },
+{% include product-review.html %}
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{product.ratingValue}}",
+    "reviewCount": "{{product.reviewCount}}"
+  },
+  "category": {
+    "@type": "Thing",
+    "name": "HTML5 Website Generator",
+    "@id": "https://www.wikidata.org/wiki/Q77916592",
+    "description": "software to generate static websites"
+  },
+  "audience": [
+    {% for items in product.audience %}
+      {
+      "@type": "BusinessAudience",
+      "audienceType": "{{ items.name }}",
+      "identifier": "{{ items.url }}"
+      {%if forloop.last %}}],{% else %}},{% endif %}{% endfor %}
+ {% include brand.html %}
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": "{%if product.rprice%}{{product.rprice}}{%else%}{{product.price}}{%endif%}",
+    "mpn": "{{product.sku}}",
+    "url": "{{site.url}}{{page.url}}",
+    "availability": "https://schema.org/OnlineOnly",
+    "priceValidUntil": "{{product.priceValidUntil|date_to_xmlschema}}",
+    "itemCondition": "https://schema.org/NewCondition",
+    "itemOffered": {
+      "@type": [
+        "Product",
+        "WebApplication"
+      ],
+      "name": "{{product.title}}",
+      "sku": "{{product.sku}}",
+      {% include brand.html %}
+      "maintainer": {
+        "@type": "ProfessionalService",
+        "@id": "{{site.url}}/about.html#company",
+        "name": "Denver Prophit Jr. d/b/a DPCG, Co."
+        },
+      "featureList": "HTML5 Semantics, JSON+LD Structured Data, Static HTML5",
+      "exampleOfWork": {
+        "@id": "{{product.demo}}"
+      },
+      "fileSize": "2MB",
+      "applicationCategory": "BusinessApplication",
+      "browserRequirements": "requires HTML5 support",
+      "softwareRequirements": "Ruby 2.x, Jekyll 3.8+",
+      "operatingSystem": "Linux Operating System",
+      "mpn": "{{product.sku}}",
+      "locationCreated": {
+       "@type": "Country",
+       "@id": "https://www.wikidata.org/wiki/Q30",
+       "name" : "United States of America"
+      },
+     "offers": {
+        "@type": "Offer",
+        "url": "{{site.url}}{{page.url}}",
+        "priceCurrency": "USD",
+        "price": "{%if product.rprice%}{{product.rprice}}{%else%}{{product.price}}{%endif%}",
+        "priceValidUntil": "{{product.date| date:'%s' | plus:15552000 | date:"%F" | date_to_xmlschema }}",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/OnlineOnly"
+      },
+    "audience":[
+    {% for items in product.audience %}
+      {
+      "@type": "BusinessAudience",
+      "audienceType": "{{ items.name }}",
+      "identifier": "{{ items.url }}"
+      }
+      {%if forloop.last %}],{%else%},{%endif%}
+      {%endfor%}
+   {% include product-review.html %}
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{product.ratingValue}}",
+        "reviewCount": "{{product.reviewCount}}"
+      },
+      "description": "{{product.desc}}",
+      "image": {
+        "@id": "#img"
+      },
+      "screenshot": {
+        "@type": "ImageObject",
+        "@id": "#img",
+        "representativeOfPage": "True",
+        "width": {
+          "@type": "QuantitativeValue",
+          "value": "1024",
+          "unitCode": "E37"
+        },
+        "height": {
+          "@type": "QuantitativeValue",
+          "value": "768",
+          "unitCode": "E37"
+        },
+        "caption": "{{product.desc}}",
+        "url": "{{site.url}}/assets/images/main/{{product.screenshot}}"
+      }
+    }
+  },
+  {% capture breadcrumb %}{{page.breadcrumb}}{% endcapture %}
+  {% include mainentityP.html breadcrumb=breadcrumb %}
+  }

@@ -1,0 +1,167 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "sameAs": [
+    "https://www.facebook.com/dpcgco",
+    "https://www.twitter.com/DenverProphitJr",
+    "https://www.linkedin.com/in/denverprophit/"
+  ],
+  "name": "d/b/a DPCG, Co.",
+  "description": "{{page.excerpt}}",
+  "url": "{{site.url}}/index.html",
+  "image": {
+    "@type": "ImageObject",
+    "width": {
+      "@type": "QuantitativeValue",
+      "value": "1600",
+      "unitCode": "E37"
+    },
+    "height": {
+      "@type": "QuantitativeValue",
+      "value": "800",
+      "unitCode": "E37"
+    },
+    "caption": "Open Source Software Solutions For The Semantic Web",
+    "url": "https://denverprophit.us/assets/images/main/site-logo.png"
+  },
+  "@id": "#publisher",
+ "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lake Panasoffkee",
+    "addressRegion": "FL",
+    "addressCountry": "USA"
+  },
+  "telephone": "+1 386-314-3502",
+  "openingHours": "Mo 09:00-18:30 Tu 09:00-18:30 We 09:00-18:30 Th 09:00-18:30 Fr 09:00-18:30",
+  "priceRange": "$$",
+  "areaServed": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "USA"
+    }
+  },
+  "logo": {
+    "@type": "ImageObject",
+    "@id": "#logo",
+    "url": "{{site.url}}/assets/images/main/logo.png",
+    "caption": "Open Source Software Solutions For The Semantic Web",
+    "width": {
+      "@type": "QuantitativeValue",
+      "value": "300",
+      "unitCode": "E37"
+    },
+    "height": {
+      "@type": "QuantitativeValue",
+      "value": "300",
+      "unitCode": "E37"
+    }
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+1 386-314-3502",
+      "contactType": "customer support",
+      "areaServed": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Florida",
+          "addressCountry": "USA"
+        }
+      },
+      "availableLanguage": "English"
+    }
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "businessFunction": "http://purl.org/goodrelations/v1#ProvideService",
+    "itemOffered": {
+      "@type": [
+        "Service",
+        "http://www.productontology.org/id/Digital_marketing"
+      ]
+    },
+    "name": "Denver Prophit Jr. - Tech SEO",
+    "url": "https://denverprophit.us",
+    "image": {
+      "@type": "ImageObject",
+      "contenturl": "https://denverprophit.us/assets/images/main/site-logo.png",
+      "caption": " - Open Source Software Solutions For The Semantic Web",
+       "width": {
+      "@type": "QuantitativeValue",
+      "value": "1600",
+      "unitCode": "E37"
+    },
+    "height": {
+      "@type": "QuantitativeValue",
+      "value": "800",
+      "unitCode": "E37"
+    }
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "mainEntity": {
+      "@id": "/index.html#publisher"
+    },
+    "hasPart": [{
+      "@type": "SiteNavigationElement",
+      "xpath": "/html/body/nav"
+    },
+    {
+    "@type": "CreativeWork",
+    "url": "{{site.url}}/faq.html"}
+    ],
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "representativeOfPage": "True",
+      "width": {
+        "@type": "QuantitativeValue",
+        "value": "1200",
+        "unitCode": "E37"
+      },
+      "height": {
+        "@type": "QuantitativeValue",
+        "value": "800",
+        "unitCode": "E37"
+      },
+      "caption": "{{page.title}}",
+      "url": "{{site.url}}{{page.featured_image}}"
+    },
+    "lastReviewed": "{{ page.last_modified_at | default: page.date}}",
+    "reviewedBy": {
+      "@type": "Person",
+      "@id": "{{site.url}}/about.html#person",
+      "name": "{{ author.name}}"
+    },
+    "accountablePerson": {
+      "@type": "Person",
+      "name": "{{author.name}}",
+      "@id": "{{site.url}}/about.html#person"
+    },
+    "copyrightHolder": {
+      "@type": "Organization",
+      "@id": "{{site.url}}/index.html",
+      "name": "{{ site.title}}",
+      "logo": {
+        "@type": "ImageObject",
+        "representativeOfPage": "False",
+        "width": {
+          "@type": "QuantitativeValue",
+          "value": "300",
+          "unitCode": "E37"
+        },
+        "height": {
+          "@type": "QuantitativeValue",
+          "value": "300",
+          "unitCode": "E37"
+        },
+        "caption": "d/b/a DPCG, Co.",
+        "url": "{{site.url}}/assets/images/main/site-logo.png"
+      }
+    },
+    "copyrightYear": "{{ page.date | date: '%Y'}}",
+    "copyrightNotice": "© copyrighted by Denver Prophit Jr. All rights reserved. Other works are copyrighted by their respective owners."
+  }
+}

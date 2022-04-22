@@ -1,0 +1,75 @@
+ "mainEntityofPage": {
+    "@type": "{{page.mainentity}}",
+{% if page.wikidatas %}
+    "mentions": [
+{% for item in page.wikidatas %}
+      {
+        "@type": "Thing",
+        "name": "{{ item.name }}",
+        "@id": "{{ item.url }}"
+      }
+{% if forloop.last %}],{% else %},{% endif %} {% endfor %}{% endif %}
+    "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "representativeOfPage": "true",
+    "width": {
+      "@type": "QuantitativeValue",
+      "value": "1600",
+      "unitCode": "E37"
+    },
+    "height": {
+      "@type": "QuantitativeValue",
+      "value": "800",
+      "unitCode": "E37"
+    },
+    "caption": "{{page.excerpt}}",
+    "url": "{{site.url}}/assets/images/main/{{page.featured_image}}",
+    "contentUrl": "{{site.url}}/assets/images/main/{{page.featured_image}}"
+    },
+    "lastReviewed": "{{ page.last_modified_at }}",
+    "reviewedBy": {
+      "@type": "Person",
+      "@id": "{{site.url}}/about.html#person",
+      "name": "{{author.name}}",
+      "url": "{{site.url}}/about.html"
+    },
+    "accountablePerson": {
+      "@type": "Person",
+      "name": "{{author.name}}",
+      "@id": "{{site.url}}/about.html#person",
+      "url": "{{site.url}}/about.html"
+    },
+    "specialty": {
+      "@type": "Specialty ",
+      "@id": "https://www.wikidata.org/wiki/{{page.wikidata}}"
+    },
+    "copyrightHolder": {"@id": "{{site.url}}/about.html#publisher"},
+      "logo": {
+        "@type": "ImageObject",
+        "representativeOfPage": "false",
+        "width": {
+          "@type": "QuantitativeValue",
+          "value": "500",
+          "unitCode": "E37"
+        },
+        "height": {
+          "@type": "QuantitativeValue",
+          "value": "500",
+          "unitCode": "E37"
+        }
+    },
+        "caption": "Logo of DPCG, Co. - Technical SEO & Front-End Developer",
+        "url": "{{site.url}}/assets/images/main/{{site.logo}}"
+      },
+    "copyrightNotice": "{{ site.copynotice }}",
+    "copyrightYear": "{{ page.date | date: '%Y'  }}",
+    "discussionUrl": "https://twitter.com/status/{{page.tweet_id}}"
+{% if page.related="true" %},
+{% capture results %}
+[ {% for category in page.categories %}
+{% for post in site.categories[category] %}
+{% if post.url != page.url %}"{{ post.url | relative_url | prepend: site.url }}"{% unless forloop.last %},{% endunless %}{% endif %}{% if forloop.last %}],{% endif %}{% endfor %}{% endfor %}
+{% endcapture %}
+    "relatedLink":{{ results }}
+    {% else %}{% endif %}
+{% capture breadcrumb %}{{page.breadcrumb}}{% endcapture %}{% if breadcrumb == "true" %},{%include breadcrumb.html %}{% else %}{% endif %}

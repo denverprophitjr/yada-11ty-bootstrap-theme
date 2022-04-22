@@ -1,0 +1,86 @@
+{
+  "@context": "https://schema.org",
+  "@id": "#faqpage",
+  "subjectOf": { "@id": "{{site.url}}/about.html#publisher" },
+  "mainEntityofPage": {
+    "@type": "FAQPage",
+{% if page.wikidatas %}
+    "mentions": [
+{% for item in page.wikidatas %}
+      {
+        "@type": "Thing",
+        "name": "{{ item.name }}",
+        "@id": "{{ item.url }}"
+      }
+{% if forloop.last %}],{% else %},{% endif %} {% endfor %}{% endif %}
+    "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "representativeOfPage": "true",
+    "width": {
+      "@type": "QuantitativeValue",
+      "value": "1600",
+      "unitCode": "E37"
+    },
+    "height": {
+      "@type": "QuantitativeValue",
+      "value": "800",
+      "unitCode": "E37"
+    },
+    "caption": "{{page.title}}",
+    "url": "{{site.url}}/assets/images/main/{{page.featured_image}}",
+    "contentUrl": "{{site.url}}/assets/images/main/{{page.featured_image}}"
+    },
+    "lastReviewed": "{{ page.last_modified_at }}",
+    "reviewedBy": {
+      "@type": "Person",
+      "@id": "{{site.url}}/about.html#person",
+      "name": "{{author.name}}",
+      "url": "{{site.url}}/about.html"
+    },
+    "accountablePerson": {
+      "@type": "Person",
+      "name": "{{author.name}}",
+      "@id": "{{site.url}}/about.html#person",
+      "url": "{{site.url}}/about.html"
+    },
+    "specialty": {
+      "@type": "Specialty ",
+      "@id": "https://www.wikidata.org/wiki/{{page.wikidata}}"
+    },
+    "copyrightHolder": {"@id": "{{site.url}}/about.html#publisher" },
+      "logo": {
+        "@type": "ImageObject",
+        "representativeOfPage": "False",
+        "width": {
+          "@type": "QuantitativeValue",
+          "value": "500",
+          "unitCode": "E37"
+        },
+        "height": {
+          "@type": "QuantitativeValue",
+          "value": "500",
+          "unitCode": "E37"
+        }
+     },
+        "caption": "Logo of {{site.title}}",
+        "url": "{{site.url}}/assets/images/main/{{site.logo}}"
+      },
+    "copyrightNotice": "© copyrighted by Denver Prophit Jr. All rights reserved. Other works are copyrighted by their respective owners.",
+    "copyrightYear": "{{ page.date | date: '%Y'  }}",
+    "discussionUrl": "https://twitter.com/status/{{page.tweet_id}}",
+    "mainEntity": [
+    {% for data in site.data.faq %}
+    {
+      "@type": "Question",
+      "name": "{{data.question}}",
+      "url": "{{site.url}}{{page.url}}/#{{data.id}}",
+      "position": "{{ forloop.index }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ data.answer }}"
+      }
+    }{% if forloop.last %}],{% else %},{% endif %}
+  {% endfor %}
+  "publisher" { "@id": "{{site.url}}/about.html#publisher" }
+  }
+}

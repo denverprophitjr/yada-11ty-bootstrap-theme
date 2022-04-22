@@ -1,0 +1,61 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "#article",
+  "url": "{{ site.url }}{{ page.url }}",
+  "name": "{{page.title}}",
+  "headline": "{{page.title}}",
+  "genre": "{{ page.genre}}",
+  "keywords": {{ page.tags |replace: "-", " " | join: ", | capitalize_all | jsonify }},
+  "description": "{{page.excerpt | strip_newlines | strip | strip_html}}",
+  "articleSection": "{{page.categories | join: ' '|replace: "-", " " | capitalize_all }}",
+  "wordCount": "{{ page.content | number_of_words}}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date}}",
+  "isBasedOn": {{ page.isbasedon |jsonify }},
+  "audience": {
+    "@type": "[BusinessAudience, Occupation]",
+    "name": "{{ page.business_occupation.name }}",
+    "audienceType": "{{ page.business_occupation.name }}",
+    "occupationalCategory": {
+      "@type": "CategoryCode",
+      "inCodeSet": {
+        "@type": "CategoryCodeSet",
+        "name": "O*Net-SOC",
+        "dateModified": "{{page.business_occupation.date}}",
+        "url": "https://www.onetonline.org/"
+      },
+      "codeValue": "{{page.business_occupation.code}}",
+      "name": "Search Marketing Strategists",
+      "url": "https://www.onetonline.org/link/summary/{{ page.business_occupation.code }}"
+    }
+  },
+  "license": "http://creativecommons.org/licenses/by-sa/4.0/",
+  {% assign author = site.data.members[page.author] %}"author": {
+    "@type": "Person",
+    "@id": "#{{ page.author}}",
+    "name": "{{author.name}}",
+    "url": "{{site.url}}/about.html"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "representativeOfPage": "true",
+    "width": {
+      "@type": "QuantitativeValue",
+      "value": "1200",
+      "unitCode": "E37"
+    },
+    "height": {
+      "@type": "QuantitativeValue",
+      "value": "800",
+      "unitCode": "E37"
+    },
+    "caption": "{{page.title}}",
+    "contentUrl": "{{site.url}}/assets/images/main/{{ page.featured_image}}",
+    "url": "{{site.url}}/assets/images/main/{{ page.featured_image}}",
+    "license": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "acquireLicensePage": "https://denverprophit.us/terms.html"
+    },
+   "publisher": { "@id": "{{site.url}}/about.html#publisher" },
+{% capture breadcrumb %}{{page.breadcrumb}}{% endcapture %}
+  {% include mainentity.html breadcrumb=breadcrumb %}

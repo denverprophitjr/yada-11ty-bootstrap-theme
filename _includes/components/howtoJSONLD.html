@@ -1,0 +1,94 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "url": "{{ site.url }}{{ page.url }}",
+  "name": "{{page.title}}",
+  "headline": "{{page.title}}",
+  "genre": "{{ page.genre}}",
+  "keywords": {{ page.tags | join: ',' | replace:'-',' '  | capitalize_all | jsonify }},
+  "description": "{{page.excerpt | strip_newlines | strip | strip_html}}",
+  "articleSection": "{{page.categories | join: ' '|replace: "-", " " | capitalize_all }}",
+  "wordCount": "{{ page.content | number_of_words}}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date}}",
+  "isBasedOn": {{ page.isbasedon | jsonify }},
+   "audience": {
+    "@type": "[BusinessAudience, Occupation]",
+    "name": "{{ page.business_occupation.name }}",
+    "audienceType": "{{ page.business_occupation.name }}",
+    "occupationalCategory": {
+      "@type": "CategoryCode",
+      "inCodeSet": {
+        "@type": "CategoryCodeSet",
+        "name": "O*Net-SOC",
+        "dateModified": "{{page.business_occupation.date}}",
+        "url": "https://www.onetonline.org/"
+      },
+      "codeValue": "{{page.business_occupation.code}}",
+      "name": "Search Marketing Strategists",
+      "url": "https://www.onetonline.org/link/summary/{{ page.business_occupation.code }}"
+    }
+  },
+  "license": "http://creativecommons.org/licenses/by-sa/4.0/",
+  {% assign author = site.data.members[page.author] %}
+  "author": {
+    "@type": "Person",
+    "@id": "{{ site.url }}/about.html#person",
+    "name": "{{author.name}}",
+    "url": "{{site.url}}/about.html#person"
+  },
+  "publisher": { "@id": "{{site.url}}/about.html#publisher" },
+  "image": {
+    "@type": "ImageObject",
+    "representativeOfPage": "True",
+    "width": {
+      "@type": "QuantitativeValue",
+      "value": "1600",
+      "unitCode": "E37"
+    },
+    "height": {
+      "@type": "QuantitativeValue",
+      "value": "800",
+      "unitCode": "E37"
+    },
+    "caption": "{{page.title}}",
+    "contentUrl": "{{site.url}}/assets/images/main/{{ page.featured_image}}",
+    "url": "{{site.url}}/assets/images/main/{{ page.featured_image}}",
+    "license": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "acquireLicensePage": "https://denverprophit.us/terms.html"
+  },
+  "supply": 
+        {
+          "@type": "HowToSupply",
+          "name": "{{page.supply}}"
+        },
+  "tool": [{% for tool in page.tool %}
+    {
+      "@type": "HowToTool",
+      "name": "{{tool.name}}"
+    }
+{% if forloop.last %}],{% else %},{% endif %}{% endfor %}
+  "step": [{% for step in page.steps %}
+    {
+      "@type": "HowToStep",
+      "name": "{{step.name}}",
+      "url": "{{site.url}}/{{page.url}}{{step.url}}",
+      "itemListElement": [
+        {  "@type": "HowToDirection",
+          "position": "1",
+          "text": "{{step.description}}" },
+        { "@type": "HowToTip",
+          "position": "2",
+          "text": "{{step.tip}}" }
+        ],
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{site.url}}/assets/images/main/{{step.image}}",
+            "height": "406",
+            "width": "305"
+          }
+          }
+{% if forloop.last %}],{% else %},{% endif %}{% endfor %}
+  "totalTime": "P{{page.duration}}M",
+  {% include mainentity.html %}
+ }

@@ -1,0 +1,182 @@
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "{{page.title|downcase|replace: "_", "&nbsp;"}}",
+    "sameAs": "https://www.wikidata.org/wiki/{{page.wikidata}}",
+    "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+{% for post in site.data.products %}
+      {
+        "@type": "Product",
+        "name": "{{ post[1].title}}",
+        "url": "{{ post[1].permalink }}",
+        "brand": "Static Website Themes",
+        "mpn": "{{post[1].sku}}",
+        "sku": "{{post[1].sku}}",
+     "image": {
+       "@type": "ImageObject",
+       "representativeOfPage": "True",
+       "width": {
+         "@type": "QuantitativeValue", 
+          "value": "348",
+          "unitCode": "E37"
+       },
+       "height": {
+         "@type": "QuantitativeValue", 
+          "value": "174",
+          "unitCode": "E37"
+       },
+      "caption": "{{post[1].title}}",
+       "url": "{{post[1].product_image}}"
+    },
+        "description": {{ post[1].desc | strip_newlines | strip | strip_html | remove: "\n\n" | jsonify }},
+        "dateModified": {{ post[1].last_modified_at | default: post.date | jsonify }},
+"aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "reviewCount": "1143"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{post[1].permalink}}",
+    "priceCurrency": "USD",
+    "price": "{{post[1].price}}",
+    "mpn": "{{post[1].sku}}",
+    "priceValidUntil": "{{post[1].date| date:'%s' | plus:15552000 | date:"%F" }}",
+    "availability": "https://schema.org/OnlineOnly",
+    "itemCondition": "https://schema.org/NewCondition"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "{{post[1].audiance}}",
+    "sameAs": "https://www.wikidata.org/wiki/{{post[1].wikidata}}"
+  }
+
+           {% if forloop.last %} } {% else %} }, {% endif %}
+{% endfor %}
+      ]
+   },
+  "image": {
+       "@type": "ImageObject",
+       "representativeOfPage": "True",
+       "width": {
+         "@type": "QuantitativeValue", 
+          "value": "{{item.img_width | default: site.img_width }}",
+          "unitCode": "E37"
+       },
+       "height": {
+         "@type": "QuantitativeValue", 
+          "value": "{{item.img_height | default: site.img_height }}",
+          "unitCode": "E37"
+       },
+      "caption": "{{site.title}}",
+       "url": "{{ item.img_url | default: site.img_url }}"
+    },
+  "url": "{{ site.url }}{{ page.url }}",
+  "description": {{ post.excerpt | strip_newlines | strip | strip_html | remove: "\n\n" | jsonify }},
+  "mainEntityOfPage": { "@type":"ItemPage", "@id": "{{site.url}}{{ post.url }}/#article",
+  "hasPart":
+    {
+     "@type": "SiteNavigationElement",
+      "xpath": "/html/body/nav" },
+ "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "representativeOfPage": "True",
+      "width": {
+        "@type": "QuantitativeValue",
+        "value": "348",
+        "unitCode": "E37"
+      },
+      "height": {
+        "@type": "QuantitativeValue",
+        "value": "174",
+        "unitCode": "E37"
+      },
+      "caption": "{{post.title}}",
+      "url": "{{site.url}}/assets/images/posts/content/{{ post.featured_image}}"
+    },
+    "lastReviewed": "{{ post.last_modified_at | default: post.date}}",
+    "reviewedBy": {
+      "@type": "Person",
+      "@id": "#{{ author.permalink}}",
+      "name": "{{ author.name}}"
+    },
+    "accountablePerson": {
+      "@type": "Person",
+      "name": "{{author.name}}",
+      "@id": "{{ author.permalink}}"
+    },
+    "specialty": {
+      "@type": "Specialty ",
+      "@id": "https://www.wikidata.org/wiki/{{page.wikidata}}"
+    },
+    "copyrightHolder": {
+      "@type": "Organization",
+      "@id": "{{site.url}}/about.html",
+      "name": "{{ site.title}}",
+      "logo": {
+        "@type": "ImageObject",
+        "representativeOfPage": "False",
+        "width": {
+          "@type": "QuantitativeValue",
+          "value": "300",
+          "unitCode": "E37"
+        },
+        "height": {
+          "@type": "QuantitativeValue",
+          "value": "300",
+          "unitCode": "E37"
+        },
+        "caption": "Logo of Denver Prophit Jr. - Technical SEO Consultant",
+        "url": "{{site.url}}/assets/images/denver-prophit-jr-logo.png"
+      }
+    },
+    "copyrightYear": "{{ post.date | date: '%Y'}}",
+    "discussionUrl": "https://twitter.com/{{site.socialmedia.twitter}}/status/{{post.tweet_id}}",
+"breadcrumb":
+      {
+        "@type": "BreadcrumbList",
+          "itemListElement":
+            [
+              {
+               "@type": "ListItem",
+               "position": "1",
+               "item":
+                {
+                 "@id": "{{ site.url | append: "/index.html" }}",
+                 "name": "Home"
+             }
+     },
+{% assign crumbs = page.url | split: '/' %}
+ {% assign crumbs_total = crumbs | size | minus: 1 %}
+    {% for crumb in crumbs offset: 1 %}
+    {% if forloop.index == crumbs_total %}
+      {
+        "@type": "ListItem",
+        "position": {{ crumbs_total | plus:1 }},
+        "item":
+          {
+            "@id": "{{ site.url }}{{ page.url }}",
+            "name": {{ page.crumbtitle | jsonify }}
+          }
+      }
+{% else %}
+      {
+        "@type": "ListItem",
+        "position": {{ crumbs_total }},
+        "item":
+          {
+            "@id": "{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}",
+            "name": "{{ crumb | replace:'-',' ' | capitalize }}"
+          }
+      },
+  {% endif %}
+  {% endfor %}
+
+         ]
+      }
+    }
+
+  }
+
