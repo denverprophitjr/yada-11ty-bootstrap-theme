@@ -86,7 +86,7 @@
     "sharp": "^0.30.0",
     "touch": "^3.1.0",
     "twitter": "^1.7.1"
-  }.
+  },
    "browserslist": [
     "last 2 chrome versions",
     "last 3 safari versions",
