@@ -1,5 +1,5 @@
 {
-  "name": "eleventy-high-performance-blog",
+  "name": "yada-11ty-blog",
   "version": "1.0.2",
   "license": "MIT",
   "description": "A starter repository for a blog web site using the Eleventy static site generator.",
@@ -12,6 +12,15 @@
     "js-build-watch": "node_modules/.bin/rollup -c rollup.config.js -w",
     "debug": "DEBUG=* eleventy && npm run test",
     "clean": "rm -Rf ./_site/*"
+    "lint": "npm-run-all lint:*",
+    "lint:fix": "npm-run-all --parallel lint:*:fix",
+    "lint:css": "stylelint \"src/**/*.scss\"",
+    "lint:css:fix": "stylelint --fix \"src/**/*.scss\"",
+    "lint:js": "eslint --cache \"**/*.js\"",
+    "lint:js:fix": "eslint --cache --fix \"**/*.js\"",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --config jest.config.cjs",
+    "test:watch": "npm test --watch --silent=false --silent=false",
+    "update-browserslist": "npx browserslist@latest --update-db",
   },
   "pre-push": [
     "build"
@@ -77,5 +86,15 @@
     "sharp": "^0.30.0",
     "touch": "^3.1.0",
     "twitter": "^1.7.1"
+  }.
+   "browserslist": [
+    "last 2 chrome versions",
+    "last 3 safari versions",
+    "last 2 firefox versions",
+    "last 2 edge versions"
+  ],
+  "lint-staged": {
+    "*.js": "npm run lint:js:fix",
+    "*.scss": "npm run lint:css:fix"
   }
 }
