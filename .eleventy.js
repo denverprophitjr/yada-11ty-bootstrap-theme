@@ -35,7 +35,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
   eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
   eleventyConfig.setDataDeepMerge(true);
-  
+
   eleventyConfig.addLayoutAlias("default", "layouts/base.njk");
 
   eleventyConfig.addNunjucksAsyncFilter(
@@ -107,7 +107,7 @@ module.exports = function (eleventyConfig) {
       "dd LLL yyyy"
     );
   });
-  
+
   eleventyConfig.addNunjucksFilter("limit", (arr, limit) => arr.slice(0, limit));
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
@@ -163,7 +163,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets/img");
   eleventyConfig.addPassthroughCopy("content-marketing/images/*.jpg");
   eleventyConfig.addPassthroughCopy("social-media/images/*.jpg");
-  eleventyConfig.addPassthroughCopy("technical-seo/images/*.jpg"); 
+  eleventyConfig.addPassthroughCopy("technical-seo/images/*.jpg");
 
   // We need to rebuild upon JS change to update the CSP.
   eleventyConfig.addWatchTarget("./assets/js/");
@@ -189,7 +189,7 @@ module.exports = function (eleventyConfig) {
   allowedAttributes: []  // empty array = all attributes are allowed
 });
   eleventyConfig.setLibrary("md", markdownLibrary);
-  
+
  // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
@@ -210,18 +210,18 @@ module.exports = function (eleventyConfig) {
 
   // After the build touch any file in the test directory to do a test run.
   eleventyConfig.on("afterBuild", async () => {
-    const files = await readdir("test");
+    const files = await readdir("./11ty/test");
     for (const file of files) {
-      touch(`test/${file}`);
+      touch(`./11ty/test/${file}`);
       break;
     }
   });
 
   // After the build touch any file in the test directory to do a test run.
   eleventyConfig.on("afterBuild", async () => {
-    const files = await readdir("test");
+    const files = await readdir("./11ty/test");
     for (const file of files) {
-      touch(`test/${file}`);
+      touch(`./11ty/test/${file}`);
       break;
     }
   });
@@ -245,7 +245,7 @@ module.exports = function (eleventyConfig) {
 
     // These are all optional, defaults are shown:
     dir: {
-      input: ".",
+      input: "src",
       includes: "_includes",
       data: "_data",
       // Warning hardcoded throughout repo. Find and replace is your friend :)
