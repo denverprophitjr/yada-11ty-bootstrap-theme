@@ -9,7 +9,7 @@
     "watch": "concurrently \"npm run serve\" \"npm run js-build-watch\"",
     "serve": "npm run clean && npx eleventy --serve",
     "debug": "DEBUG=* eleventy && npm run test",
-    "clean": "rm -Rf ./_site/*"
+    "clean": "rm -Rf ./_site/*",
     "lint": "npm-run-all lint:*",
     "lint:fix": "npm-run-all --parallel lint:*:fix",
     "lint:css": "stylelint \"src/**/*.scss\"",
