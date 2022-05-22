@@ -14,10 +14,10 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItAtrr = require("markdown-it-attrs");
-const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
+const localImages = require("./_11ty/plugins/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
-const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
-const imageShortcode = require("./_11ty/image");
+const GA_ID = require("./src/_data/metadata.json").googleAnalyticsId;
+const imageShortcode = require("./_11ty/plugins/11ty-image/image");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
@@ -133,28 +133,21 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("technical", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("technical-seo/*.md").sort(function(a, b) {
+    return collectionApi.getFilteredByGlob("./src/technical-seo/*.md").sort(function(a, b) {
       //return a.date - b.date; // sort by date - ascending
       return b.date - a.date; // sort by date - descending
     });
 });
 
   eleventyConfig.addCollection("content", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("content-marketing/*.md").sort(function(a, b) {
-      //return a.date - b.date; // sort by date - ascending
-      return b.date - a.date; // sort by date - descending
-    });
-});
-  
-  eleventyConfig.addCollection("templates", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("website-templates/*.md").sort(function(a, b) {
+    return collectionApi.getFilteredByGlob("./src/content-marketing/*.md").sort(function(a, b) {
       //return a.date - b.date; // sort by date - ascending
       return b.date - a.date; // sort by date - descending
     });
 });
 
   eleventyConfig.addCollection("social", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("social-marketing/*.md").sort(function(a, b) {
+    return collectionApi.getFilteredByGlob("./src/social-marketing/*.md").sort(function(a, b) {
       //return a.date - b.date; // sort by date - ascending
       return b.date - a.date; // sort by date - descending
     });
@@ -170,9 +163,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets/img");
   eleventyConfig.addPassthroughCopy("content-marketing/images/*.jpg");
   eleventyConfig.addPassthroughCopy("social-media/images/*.jpg");
-  eleventyConfig.addPassthroughCopy("technical-seo/images/*.jpg");
-  eleventyConfig.addPassthroughCopy("website-templates/images/*.jpg");
-  
+  eleventyConfig.addPassthroughCopy("technical-seo/images/*.jpg"); 
 
   // We need to rebuild upon JS change to update the CSP.
   eleventyConfig.addWatchTarget("./assets/js/");
