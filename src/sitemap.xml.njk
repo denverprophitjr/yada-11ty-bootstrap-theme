@@ -9,7 +9,7 @@ siteWideUpdate: 2020-07-12
   {% set absoluteUrl %}{{ page.url | url | absoluteUrl(metadata.url) }}{% endset %}
   {% set pageDate = page.date | sitemapDateTimeString %}
   {% set lastModifiedDate = page.inputPath | lastModifiedDate  | sitemapDateTimeString %}
-  {% set siteWide = siteWideUpdate| sitemapDateTimeString %}
+  {% set siteWide = lastModifiedDate | sitemapDateTimeString %}
   {% set lastmod = siteWide %}
   {% if pageDate > lastmod %}
     {% set lastmod = pageDate %}
