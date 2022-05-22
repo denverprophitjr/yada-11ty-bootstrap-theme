@@ -8,8 +8,6 @@
     "build": "npm run clean && npm run build-ci",
     "watch": "concurrently \"npm run serve\" \"npm run js-build-watch\"",
     "serve": "npm run clean && npx eleventy --serve",
-    "js-build": "node_modules/.bin/rollup -c rollup.config.js",
-    "js-build-watch": "node_modules/.bin/rollup -c rollup.config.js -w",
     "debug": "DEBUG=* eleventy && npm run test",
     "clean": "rm -Rf ./_site/*"
     "lint": "npm-run-all lint:*",
@@ -86,7 +84,7 @@
     "sharp": "^0.30.0",
     "touch": "^3.1.0",
     "twitter": "^1.7.1"
-  }.
+  },
    "browserslist": [
     "last 2 chrome versions",
     "last 3 safari versions",

@@ -1,6 +1,7 @@
 // Bootstrap JS and CSS
 import 'bootstrap';
-import '../css/style.css';
+
+import '../css/main.css';
 
 // Bootstrap Popover
 import './vendor/popover';
