@@ -1,10 +1,25 @@
 {
-  "name": "yada-11ty-blog",
+  "name": "yada-11ty-blog-theme",
   "version": "1.0.2",
-  "license": "MIT",
-  "description": "A starter repository for a blog web site using the Eleventy static site generator.",
+  "license" : "CC-BY-NC-SA-4.0",
+  "description": "A starter repository for a blog web site using the Eleventy static site generator, bootstrap5, structured data and webmentions.",
+  "author":{
+    "name": "Denver Prophit Jr.",
+    "email": "denver.prophit@gmail.com",
+    "url": "https://github.com/denverprophitjr/yada-11ty-bootstrap-theme"
+  },
+    "funding": {
+      "type" : "opencollective",
+      "url" : "https://opencollective.com/yada-theme"
+    },
+  "main": ".eleventy.js",
+  "engines": {
+    "node": "^16.15.0",
+    "npm": "^8.10.0"
+  },
   "scripts": {
-    "build-ci": "npm run js-build && npx eleventy && npx sass scss:_site/css --watch",
+    "build-ci": "npx eleventy && npx sass scss:_site/css --watch",
+    "build:css": "sass src/assets/styles:_site/assets/styles --style=compressed",
     "build": "npm run clean && npm run build-ci",
     "watch": "concurrently \"npm run serve\" \"npm run js-build-watch\"",
     "serve": "npm run clean && npx eleventy --serve",
