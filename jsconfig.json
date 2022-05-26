@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "module": "commonJS",
+      "target": "es6",
+      "baseUrl": "./src/assets/scripts/",
+      "paths": {
+        "@components": ["components/index.js"],
+        "@utils": ["utils/index.js"]
+      }
+    },
+    "exclude": ["_site", "node_modules"]
+  }
