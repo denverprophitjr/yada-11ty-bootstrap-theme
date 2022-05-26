@@ -16,7 +16,7 @@
     "lint:css:fix": "stylelint --fix \"src/**/*.scss\"",
     "lint:js": "eslint --cache \"**/*.js\"",
     "lint:js:fix": "eslint --cache --fix \"**/*.js\"",
-    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --config jest.config.cjs",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' npx jest --config jest.config.cjs",
     "test:watch": "npm test --watch --silent=false --silent=false",
     "update-browserslist": "npx browserslist@latest --update-db",
   },
