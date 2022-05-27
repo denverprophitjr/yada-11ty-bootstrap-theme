@@ -31,8 +31,9 @@ const {
   getPopularCategories,
 } = require('./_11ty/collections/');
 const markdownLib = require('./_11ty/plugins/markdown');
+const syntaxHighlight = require('./_11ty/plugins/syntaxHighlight');
 const { dir, imagePaths, scriptDirs } = require('./_11ty/constants');
-const { slugifyString } = require('./_11ty/utils/');
+const { slugifyString } = require('./_11ty/utils');
 const { escape } = require('lodash');
 
 const TEMPLATE_ENGINE = 'njk';

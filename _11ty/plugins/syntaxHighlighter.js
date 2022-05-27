@@ -1,5 +1,6 @@
-module.exports = {
-  // Change which Eleventy template formats use syntax highlighters
+const syntaxHighlight = {
+
+ // Change which Eleventy template formats use syntax highlighters
   templateFormats: ['md'], // default
   // Added in 3.0, set to true to always wrap lines in `<span class="highlight-line">`
   // The default (false) only wraps when line numbers are passed in.
@@ -13,3 +14,5 @@ module.exports = {
   preAttributes: {},
   codeAttributes: {},
 };
+
+module.exports = syntaxHighlight
