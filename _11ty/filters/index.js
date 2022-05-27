@@ -2,7 +2,7 @@ const lodash = require('lodash');
 const sass = require('sass');
 const dayjs = require('dayjs');
 const markdownLib = require('../plugins/markdown');
-const site = require('../../metadata.json');
+const site = require('../../src/_data/metadata.json');
 const { throwIfNotType } = require('../utils');
 
 /** Returns the first `limit` elements of the the given array. */
