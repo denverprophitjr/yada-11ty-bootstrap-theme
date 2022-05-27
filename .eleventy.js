@@ -23,7 +23,7 @@ const {
   toAbsoluteImageUrl,
   pathParse,
   pathJoin,
-} = require('./_11ty/filters/filters');
+} = require('./_11ty/filters/');
 const {
   getAllPosts,
   getAllUniqueCategories,
@@ -31,17 +31,13 @@ const {
   getPopularCategories,
 } = require('./_11ty/collections');
 const markdownLib = require('./_11ty/plugins/markdown');
-const { dir, imagePaths, scriptDirs } = require('./_11ty/constants');
+const { dir, imagePaths, scriptDirs } = require('./_11ty/constants/');
 const { slugifyString } = require('./_11ty/utils');
 const { escape } = require('lodash');
 
-const TEMPLATE_ENGINE = 'liquid';
+const TEMPLATE_ENGINE = 'njk';
 
 module.exports = (eleventyConfig) => {
-  eleventyConfig.setLiquidOptions({
-    // Allows for dynamic include/partial names. If true, include names must be quoted. Defaults to true as of beta/1.0.
-    dynamicPartials: false,
-  });
 
   // Watch targets
   eleventyConfig.addWatchTarget(imagePaths.input);
