@@ -1,10 +1,10 @@
 Nunjucks 🥋:
-- any: 'src/_includes/layouts/**/*.njk'
+- any: ['src/_includes/layouts/**/*.njk']
 Data 🖥:
-- any: 'src/_data/**/*.js'
+- any: ['src/_data/**/*.js']
 CSS 🎨:
-- any: 'src/css/**/*.css'
+- any: ['src/css/**/*.css']
 Package 📦:
-- any: 'package.*'
+- any: ['package.*']
 11ty Actions 🤸:
-- any 'src/_11ty/*'
+- any ['src/_11ty/*']
