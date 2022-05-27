@@ -29,10 +29,10 @@ const {
   getAllUniqueCategories,
   getPostsByCategory,
   getPopularCategories,
-} = require('./_11ty/collections');
+} = require('./_11ty/collections/');
 const markdownLib = require('./_11ty/plugins/markdown');
 const { dir, imagePaths, scriptDirs } = require('./_11ty/constants/');
-const { slugifyString } = require('./_11ty/utils');
+const { slugifyString } = require('./_11ty/utils/');
 const { escape } = require('lodash');
 
 const TEMPLATE_ENGINE = 'njk';
@@ -46,7 +46,6 @@ module.exports = (eleventyConfig) => {
   // Pass-through copy for static assets
   eleventyConfig.addPassthroughCopy(`${dir.input}/${dir.assets}/fonts`);
   eleventyConfig.addPassthroughCopy(`${dir.input}/${dir.assets}/videos`);
-  eleventyConfig.addPassthroughCopy(`${imagePaths.input}/art`);
   eleventyConfig.addPassthroughCopy(`${imagePaths.input}/404`);
 
   // Custom shortcodes
