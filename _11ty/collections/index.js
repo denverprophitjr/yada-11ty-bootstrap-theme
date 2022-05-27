@@ -1,6 +1,6 @@
 const lodash = require('lodash');
 const { getAllUniqueKeyValues, slugifyString } = require('../utils');
-const site = require('../../src/_data/site');
+const site = require('../../src/_data/metadata.json');
 const { limit } = require('../filters/filters');
 const { dir } = require('../constants');
 
