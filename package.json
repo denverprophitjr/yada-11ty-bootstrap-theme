@@ -4,7 +4,7 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:denverprophitjr/yada-11ty-themes.git"
-  }  
+  },
   "author": "Denver Prophit Jr. <3696477+inetbiz@users.noreply.github.com> (http://denverprophit.us/)",
   "license": "UNLICENSED",
   "description": "A starter repository for a blog web site using the Eleventy static site generator, bootstrap V5.",
