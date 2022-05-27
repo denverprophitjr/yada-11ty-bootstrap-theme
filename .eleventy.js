@@ -8,7 +8,7 @@ const {
   socialIconShortcode,
   quoteShortcode,
   faviconShortcode,
-} = require('./config/shortcodes');
+} = require('./_11ty/shortcodes');
 const {
   limit,
   sortByKey,
