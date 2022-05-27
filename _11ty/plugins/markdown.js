@@ -1,6 +1,5 @@
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
-const markdownItKatex = require('@iktakahiro/markdown-it-katex');
 const markdownItTocDoneRight = require('markdown-it-toc-done-right');
 const markdownItLinkAttributes = require('markdown-it-link-attributes');
 const { slugifyString } = require('../utils');
@@ -32,10 +31,6 @@ const markdownLib = markdownIt({
       target: '_blank',
       rel: 'noreferrer noopener',
     },
-  })
-  .use(markdownItKatex, {
-    strict: false,
-    throwOnError: true,
   });
 
 module.exports = markdownLib;
