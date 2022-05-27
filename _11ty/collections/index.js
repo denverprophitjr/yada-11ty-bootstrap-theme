@@ -1,7 +1,7 @@
 const lodash = require('lodash');
 const { getAllUniqueKeyValues, slugifyString } = require('../utils');
 const site = require('../../src/_data/metadata.json');
-const { limit } = require('../filters/filters');
+const { limit } = require('../filters/');
 const { dir } = require('../constants');
 
 /** Returns all blog posts as a collection. */
