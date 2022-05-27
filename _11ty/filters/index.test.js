@@ -10,7 +10,7 @@ const {
   toAbsoluteUrl,
   getLatestCollectionItemDate,
 } = require('.');
-const site = require('../../src/_data/metadata');
+const site = require('../../src/_data/metadata.json');
 
 describe('custom 11ty filters', () => {
   describe('limit', () => {
