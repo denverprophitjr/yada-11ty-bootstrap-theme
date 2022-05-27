@@ -1,0 +1,20 @@
+[
+	{
+		"key":"dprophitjr",
+		"name":"Denver Prophit Jr.",
+		"bio": "Raymond likes cats.",
+		"website":"https://denverprophit.us",
+		"photo":"assets/img/ray2019c.jpg",
+		"twitter":"denverprophitjr",
+		"github": "denverprophitjr",
+		"facebook": "dpcg"
+	},
+	{
+		"key":"brinaldi",
+		"name":"Brian Rinaldi",
+		"bio":"Brian something something or another.",
+		"website":"https://remotesynthesis.com/",
+		"photo":"https://miro.medium.com/fit/c/400/400/2*k9h7ypAlAlA7PvOUjwbejA.jpeg",
+		"twitter":"remotesynth"
+	}
+]

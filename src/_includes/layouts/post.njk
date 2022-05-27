@@ -12,8 +12,10 @@ templateClass: tmpl-post
         <h1><a href="#">{{ title }}</a></h1>
     </div>
     <!-- entity_title -->
-
-    <div class="entity_meta">{{ date }}, by: <a href="#" target="_self">{{ author }}</a>
+{% if author %}
+	{% assign myAuthor = authors | getAuthor: author %}
+    <div class="entity_meta">{{ date }}, by: <a href="/authors/{{ author }}">{{ myAuthor.name }}</a>
+    {% endif %}
     </div>
     <!-- entity_meta -->
 
@@ -26,7 +28,6 @@ templateClass: tmpl-post
         <!--Twitter-->
         <a href="#" class="icons-sm tw-ic"><i class="fa fa-twitter"></i></a>
         <!--Google +-->
-        <a href="#" class="icons-sm inst-ic"><i class="fa fa-google-plus"> </i></a>
         <!--Linkedin-->
         <a href="#" class="icons-sm tmb-ic"><i class="fa fa-ge"> </i></a>
         <!--Pinterest-->
