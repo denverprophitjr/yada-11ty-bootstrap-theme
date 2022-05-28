@@ -32,7 +32,7 @@
     "serve:css": "npx sass --watch src/assets/styles:_site/assets/styles --style=expanded",
     "build": "run-s test clean build:html build:css",
     "build:html": "ELEVENTY_ENV=production npx @11ty/eleventy",
-    "build:css": "sass src/assets/styles:_site/assets/styles --style=compressed",
+    "build:css": "sass src/assets/main:_site/assets/main --style=compressed",
     "lint": "npm-run-all lint:*",
     "lint:fix": "npm-run-all --parallel lint:*:fix",
     "lint:css": "npx stylelint \"src/**/*.scss\"",
