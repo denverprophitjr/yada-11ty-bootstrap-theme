@@ -1,5 +1,5 @@
 const slugify = require('slugify');
-const { dir } = require('../constants');
+const { dir } = require('./constants');
 
 /** Returns an array of all blog posts. */
 const getAllPosts = (collection) => {
