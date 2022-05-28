@@ -9,6 +9,9 @@
   "webmaster": "webmaster@denverprophit.us",
   "timezone": "America/New_York",
   "googleAnalyticsId": "GA ID. Update me. Note, that this is not compatible with the not-yet-commonly used version 4 of Google Analytics",
+  "pagination": {
+    "itemsPerPage": 20
+  },
   "sendWebVitals": false,
   "feed": {
     "subtitle": "Posts from Denver Prophit Jr.",
