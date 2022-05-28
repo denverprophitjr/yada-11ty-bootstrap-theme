@@ -15,8 +15,8 @@ const imagePaths = {
 };
 
 const scriptDirs = {
-  input: path.join(dir.input, dir.assets, 'scripts'),
-  output: path.join(dir.output, dir.assets, 'scripts'),
+  input: path.join(dir.input, dir.assets, 'js'),
+  output: path.join(dir.output, dir.assets, 'js'),
 };
 
 module.exports = {
@@ -24,4 +24,3 @@ module.exports = {
   imagePaths,
   scriptDirs,
 };
-
