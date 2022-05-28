@@ -8,14 +8,19 @@
   "author": "Denver Prophit Jr. <3696477+inetbiz@users.noreply.github.com> (http://denverprophit.us/)",
   "license": "UNLICENSED",
   "description": "A starter repository for a blog web site using the Eleventy static site generator, bootstrap V5.",
-  "keywords": ["11ty", "eleventy", "bootstrap", "template"],
+  "keywords": [
+    "11ty",
+    "eleventy",
+    "bootstrap",
+    "template"
+  ],
   "bugs": {
     "url": "https://github.com/denverprophitjr/yada-11ty-themes/issues"
   },
   "homepage": "https://github.com/denverprophitjr/yada-11ty-themes#readme",
   "funding": {
-    "type" : "paypal",
-    "url" : "https://www.paypal.com/donate/?hosted_button_id=N9YEHTX43Z6PJ"
+    "type": "paypal",
+    "url": "https://www.paypal.com/donate/?hosted_button_id=N9YEHTX43Z6PJ"
   },
   "main": ".eleventy.js",
   "engines": {
@@ -42,15 +47,17 @@
     "test": "NODE_OPTIONS='--experimental-vm-modules' npx jest --config jest.config.cjs",
     "test:watch": "npx yarn test --watch --silent=false --silent=false",
     "update-browserslist": "npx browserslist@latest --update-db"
-    },
+  },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1",
-    "@11ty/eleventy-navigation": "^0.3.3",
-    "@11ty/eleventy-plugin-rss": "^1.0.7",
     "@11ty/eleventy-cache-assets": "^2.3.0",
     "@11ty/eleventy-img": "^2.0.1",
+    "@11ty/eleventy-navigation": "^0.3.3",
+    "@11ty/eleventy-plugin-rss": "^1.0.7",
     "@11ty/eleventy-upgrade-help": "^1.0.1",
     "@toycode/markdown-it-class": "^1.2.4",
+    "@webpixels/css": "^1.1.92",
+    "bootstrap": "^5.1.3",
     "classnames": "^2.3.1",
     "eleventy-plugin-footnotes": "^0.10.0",
     "esbuild": "^0.14.37",
@@ -78,7 +85,7 @@
     "stylelint": "^14.7.1",
     "stylelint-config-standard-scss": "^4.0.0"
   },
-    "dependencies": {
+  "dependencies": {
     "dayjs": "^1.10.5",
     "octokit": "^1.7.0",
     "sanitize-html": "^2.6.1"
