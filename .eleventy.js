@@ -101,7 +101,7 @@ module.exports = (eleventyConfig) => {
   // Post-processing
   eleventyConfig.on('afterBuild', () => {
     return esbuild.build({
-      entryPoints: [path.join(scriptDirs.input, 'index.mjs'), path.join(scriptDirs.input, 'comments.mjs')],
+      entryPoints: path.join(scriptDirs.input, 'index.mjs'),
       entryNames: '[dir]/[name]',
       outdir: scriptDirs.output,
       format: 'esm',
