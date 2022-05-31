@@ -28,11 +28,7 @@
     "npm": ">=8.5.0",
     "yarn": ">=1.22.19"
   },
-<<<<<<< Updated upstream
-  "scripts": {    
-=======
   "scripts": {
->>>>>>> Stashed changes
     "analyze": "npm-run-all build analyze:*",
     "analyze:js": "source-map-explorer _site/**/*.js _site/**/*.js.map",
     "clean:all": "rimraf _site",
@@ -66,7 +62,6 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.10",
     "@toycode/markdown-it-class": "^1.2.4",
-<<<<<<< Updated upstream
     "@webpixels/css": "^1.1.92",
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
@@ -80,7 +75,6 @@
     "css-minimizer-webpack-plugin": "^1.1.5",
     "eleventy-plugin-footnotes": "^0.10.0",
     "eleventy-plugin-error-overlay": "^1.0.0",
-=======
     "babel-loader": "^8.2.2",
     "cheerio": "^1.0.0-rc.3",
     "classnames": "^2.3.1",
@@ -90,17 +84,12 @@
     "css-minimizer-webpack-plugin": "^1.1.5",
     "eleventy-plugin-error-overlay": "^1.0.0",
     "eleventy-plugin-footnotes": "^0.10.0",
->>>>>>> Stashed changes
     "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "feather-icons": "^4.28.0",
     "html-minifier": "^4.0.0",
     "husky": "^4.3.0",
-<<<<<<< Updated upstream
-    "js-yaml": "^3.14.1",
-=======
->>>>>>> Stashed changes
     "jest": "^28.1.0",
     "js-yaml": "^3.14.1",
     "lint-staged": "^12.1.7",
@@ -123,10 +112,7 @@
     "rimraf": "^3.0.2",
     "sass": "^1.50.1",
     "sass-loader": "^10.1.0",
-<<<<<<< Updated upstream
     "source-map-explorer": "^2.5.1",
-=======
->>>>>>> Stashed changes
     "simple-icons": "^6.3.0",
     "slugify": "^1.5.3",
     "source-map-explorer": "^2.5.1",
