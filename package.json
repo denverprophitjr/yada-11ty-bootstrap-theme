@@ -61,7 +61,6 @@
     "bootstrap-icons-font": "^2.0.7",
     "classnames": "^2.3.1",
     "eleventy-plugin-footnotes": "^0.10.0",
-    "esbuild": "^0.14.42",
     "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
