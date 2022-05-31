@@ -71,7 +71,7 @@
     "css-loader": "^5.0.1",
     "css-minimizer-webpack-plugin": "^1.1.5",
     "eleventy-plugin-footnotes": "^0.10.0",
-    "eleventy-plugin-error-overlay": "^0.1.2",
+    "eleventy-plugin-error-overlay": "^1.0.0",
     "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
