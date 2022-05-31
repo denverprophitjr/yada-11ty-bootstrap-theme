@@ -1,4 +1,3 @@
-const esbuild = require('esbuild');
 const path = require('path');
 const PluginFootnotes = require('eleventy-plugin-footnotes');
 const {
@@ -19,7 +18,6 @@ const {
   dividedBy,
   toAbsoluteUrl,
   getLatestCollectionItemDate,
-  compileAndMinifyScss,
   toAbsoluteImageUrl,
   pathParse,
   pathJoin,
@@ -30,8 +28,12 @@ const {
   getPostsByCategory,
   getPopularCategories,
 } = require('./_11ty/collections/');
-const markdownLib = require('./_11ty/plugins/markdown');
-const syntaxHighlighter = require('./_11ty/plugins/syntaxHighlighter');
+const {
+    markdownLib,
+    syntaxHighlighter,
+} = require('./_11ty/plugins/');
+
+
 const { dir, imagePaths, scriptDirs } = require('./_11ty/constants');
 const { slugifyString } = require('./_11ty/utils');
 const { escape } = require('lodash');
@@ -56,7 +58,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addShortcode('favicon', faviconShortcode);
   eleventyConfig.addShortcode('icon', iconShortcode);
   eleventyConfig.addShortcode('socialIcon', socialIconShortcode);
-
+  
   // Custom filters
   eleventyConfig.addFilter('limit', limit);
   eleventyConfig.addFilter('sortByKey', sortByKey);
@@ -72,7 +74,6 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter('toJson', JSON.stringify);
   eleventyConfig.addFilter('fromJson', JSON.parse);
   eleventyConfig.addFilter('getLatestCollectionItemDate', getLatestCollectionItemDate);
-  eleventyConfig.addFilter('compileAndMinifyScss', compileAndMinifyScss);
   eleventyConfig.addFilter('keys', Object.keys);
   eleventyConfig.addFilter('values', Object.values);
   eleventyConfig.addFilter('entries', Object.entries);
@@ -96,22 +97,8 @@ module.exports = (eleventyConfig) => {
     titleId: 'footnotes-label',
     backLinkLabel: (footnote, index) => `Back to reference ${index + 1}`,
   });
+  
   eleventyConfig.setLibrary('md', markdownLib);
-
-  // Post-processing
-  eleventyConfig.on('afterBuild', () => {
-    return esbuild.build({
-      entryPoints: [path.join(scriptDirs.input, 'index.mjs'),],
-      entryNames: '[dir]/[name]',
-      outdir: scriptDirs.output,
-      format: 'esm',
-      outExtension: { '.js': '.mjs' },
-      bundle: true,
-      splitting: true,
-      minify: true,
-      sourcemap: process.env.ELEVENTY_ENV !== 'production',
-    });
-  });
 
   return {
     dir,

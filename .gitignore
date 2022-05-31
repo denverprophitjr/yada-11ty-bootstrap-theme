@@ -37,3 +37,4 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 node_modules/
 .gitignore
 node_modules
+package-lock.json

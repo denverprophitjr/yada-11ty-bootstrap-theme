@@ -1,5 +1,4 @@
 const lodash = require('lodash');
-const sass = require('sass');
 const dayjs = require('dayjs');
 const markdownLib = require('../plugins/markdown');
 const site = require('../../src/_data/metadata.json');
@@ -109,11 +108,6 @@ const jsonParse = (jsonString) => {
   return JSON.parse(JSON.stringify(jsonObject));
 };
 
-/** Given a scss string, compile it to CSS, minify the result, and return the final CSS as a string. */
-const compileAndMinifyScss = (scss) => {
-  return sass.renderSync({ data: scss, outputStyle: 'compressed' }).css.toString();
-};
-
 module.exports = {
   limit,
   sortByKey,
@@ -128,5 +122,4 @@ module.exports = {
   toAbsoluteUrl,
   jsonParse,
   getLatestCollectionItemDate,
-  compileAndMinifyScss,
 };
