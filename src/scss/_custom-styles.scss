@@ -166,7 +166,7 @@ section {
 			height: 35px;
 			line-height: 35px;
 			cursor: pointer;
-			&::first-child {
+			&:first-child {
 				color: #eee;
 			}
 		}
