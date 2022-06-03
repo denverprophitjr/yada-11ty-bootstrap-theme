@@ -1,104 +1,3 @@
-/*
-/*
-Template Name: Tech News
-Description: HTML5 / CSS3 One Page
-Version: 1.0
-Author: uiCookies.com
-*/
-/*------------------------------------------------------------------
-[Table of contents]
-1. Header
-    - left
-           - date
-           - year
-        - middle
-       - logo	
-        - right
-           - share
-           - language dropdown
-           
-    font-family: 'PT Serif', serif;
-    font-family: 'Bangers', cursive;
-    font-family: 'Vidaloka', serif;
-    font-family: 'Limelight', cursive;
-           
-# [Color codes]
-# Body  (text): #888
-# Heading Color #0E1555
-# Theme Color (link color) #FD367E
-# Mid grey (sub header) #666666
-# -------------------------------------------------------------------*/
-/* --------------------------------------
- * Global Typography
- *------------------------------------------*/
-/* --------------------------------------
- * LINK STYLE
- *------------------------------------------*/
-/* --------------------
-   Section Background
-   -------------------*/
-/* --------------------
- *  main Wrapper
- * -------------------*/
-/* --------------------
-   Breadcrumb Section
-   -------------------*/
-/* --------------------
-   Header Section
-   -------------------*/
-/*-----------------------------
- NAVIGATION STYLE
---------------------------------*/
-/*Navigation*/
-/*Dropdown Menu*/
-/*Mega Menu*/
-/*uc-mobile-menu*/
-/*Mobile Menu Close*/
-/* ---------------------------------------------- /*
- * Rating style
-/* ---------------------------------------------- */
-/* ---------------------------------------------- /*
- * Feature Tech News
-/* ---------------------------------------------- */
-/* ---------------------------------------------- /*
- * Owl Carousel Slider for Blog
-/* ---------------------------------------------- */
-/* ---------------------------------------------- /*
- * Category Tech News
-/* ---------------------------------------------- */
-/* ---------------------------------------------- /*
- * Social Style
-/* ---------------------------------------------- */
-/* ---------------------------------------------- /*
- * Readers Comment Section
-/* ---------------------------------------------- */
-/* ---------------------------------------------- /*
- * Video Section
-/* ---------------------------------------------- */
-/* ---------------------------------------------- /*
- * Subscribe Style
-/* ---------------------------------------------- */
-/* ---------------------------------------------- /*
- * Sidebar Style
-/* ---------------------------------------------- */
-/* ---------------------------------------------- /*
- * Divider Style
-/* ---------------------------------------------- */
-/*------------------------------------------------
- pagination style
------------------------------------------------*/
-/*------------------------------------------------
- footer-top style
------------------------------------------------*/
-/*------------------------------------------------
- footer bottom style
------------------------------------------------*/
-/* ---------------------------------------------- /*
- * Preloader
-/* ---------------------------------------------- */
-/* ---------------------------------------------- /*
- * Scroll Top Wrapper
-/* ---------------------------------------------- */
 body {
 	font-family: 'Roboto', serif;
 	font-size: 13px;
@@ -209,13 +108,6 @@ section {
 }
 .subscribe_section {
 	padding: 30px;
-	.form-horizontal {
-		.form-group-lg {
-			.control-label {
-				padding-top: 0;
-			}
-		}
-	}
 	h1 {
 		text-transform: uppercase;
 	}
@@ -656,9 +548,156 @@ section {
 		}
 	}
 }
+* {
+	Rating {
+		style {
+			.rating {
+				font-size: 12px;
+				margin-top: 1px;
+			}
+		}
+	}
+	Feature {
+		Tech {
+			News {
+				.feature_static_last_wrapper {
+					margin-top: 30px;
+				}
+			}
+		}
+	}
+	Owl {
+		Carousel {
+			Slider {
+				for {
+					Blog {
+						#feature-news-carousel {
+							.item {
+								img {
+									display: block;
+									width: 100%;
+									height: auto;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	Category {
+		Tech {
+			News {
+				.article_title {
+					background-color: #fff;
+					z-index: 3;
+				}
+			}
+		}
+	}
+	Social {
+		Style {
+			.article_social {
+				margin-top: 30px;
+				color: #000;
+			}
+		}
+	}
+	Readers {
+		Comment {
+			Section {
+				.readers_comment {
+					.form-control {
+						border-radius: 0;
+						padding: 20px;
+					}
+				}
+			}
+		}
+	}
+	Video {
+		Section {
+			.video_section {
+				.well {
+					padding: 50px;
+					border-radius: 0;
+					border: none;
+					background-color: rgba(239, 239, 239, 0.69);
+				}
+			}
+		}
+	}
+	Subscribe {
+		Style {
+			.subscribe_section {
+				.form-horizontal {
+					.form-group-lg {
+						.control-label {
+							padding-top: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	Sidebar {
+		Style {
+			.widget {
+				position: relative;
+				display: block;
+				margin-bottom: 30px;
+			}
+		}
+	}
+	Divider {
+		Style {
+			.divider {
+				display: inline-block;
+				vertical-align: baseline;
+				zoom: 1;
+				width: 98%;
+				position: relative;
+				text-align: right;
+				text-transform: uppercase;
+				font-size: 11px;
+			}
+		}
+	}
+	Preloader {
+		#preloader {
+			bottom: 0;
+			left: 0;
+			position: fixed;
+			right: 0;
+			top: 0;
+			z-index: 9999;
+		}
+	}
+	Scroll {
+		Top {
+			Wrapper {
+				.crunchify-top {
+					display: none;
+					position: fixed;
+					bottom: 40px;
+					right: 15px;
+					width: 30px;
+					height: 30px;
+					line-height: 30px;
+					background-color: rgb(58, 200, 222);
+					text-decoration: none;
+					border-radius: 4px;
+					color: #fff;
+					font-size: 20px;
+					text-align: center;
+					cursor: pointer;
+					z-index: 333;
+				}
+			}
+		}
+	}
+}
 .rating {
-	font-size: 12px;
-	margin-top: 1px;
 	i {
 		display: inline-block;
 		position: relative;
@@ -667,9 +706,6 @@ section {
 		cursor: pointer;
 		color: #ffd62c;
 	}
-}
-.feature_static_last_wrapper {
-	margin-top: 30px;
 }
 .feature_article_inner {
 	background: #fff;
@@ -688,15 +724,6 @@ section {
 }
 .article_wrapper {
 	margin-bottom: 30px;
-}
-#feature-news-carousel {
-	.item {
-		img {
-			display: block;
-			width: 100%;
-			height: auto;
-		}
-	}
 }
 .right_category_image {
 	margin-left: -30px;
@@ -757,8 +784,6 @@ section {
 	}
 }
 .article_title {
-	background-color: #fff;
-	z-index: 3;
 	&:after {
 		position: relative;
 		display: inline-block;
@@ -953,10 +978,6 @@ section {
 			border: none;
 		}
 	}
-	.form-control {
-		border-radius: 0;
-		padding: 20px;
-	}
 	.btn {
 		border-radius: 0;
 		padding: 9px 30px;
@@ -1136,8 +1157,6 @@ section {
 	}
 }
 .article_social {
-	margin-top: 30px;
-	color: #000;
 	i {
 		padding: 5px;
 		margin-right: 5px;
@@ -1167,51 +1186,12 @@ section {
 	width: 50%;
 }
 .video_section {
-	.well {
-		padding: 50px;
-		border-radius: 0;
-		border: none;
-		background-color: rgba(239, 239, 239, 0.69);
-	}
 	.embed-responsive-4by3 {
 		padding-bottom: 55%;
 	}
 }
 .embed-responsive-4by3 {
 	padding-bottom: 35%;
-}
-.widget {
-	position: relative;
-	display: block;
-	margin-bottom: 30px;
-	i {
-		&:hover {
-			color: #f7510f;
-			cursor: pointer;
-		}
-	}
-	.add_img {
-		display: inline-block;
-		padding: 12px 12px;
-	}
-	.media {
-		margin-top: 0;
-		margin-bottom: 30px;
-	}
-	.media-heading {
-		margin-bottom: 5px;
-		font-size: 15px;
-		line-height: 18px;
-	}
-	.media-date {
-		color: #b2b0b0;
-	}
-	.adv_img {
-		display: inline-block;
-	}
-	hr {
-		border-color: #e0e0e0;
-	}
 }
 .widget_title {
 	background-color: #fff;
@@ -1241,6 +1221,36 @@ section {
 			background-color: #000;
 			z-index: 2;
 		}
+	}
+}
+.widget {
+	i {
+		&:hover {
+			color: #f7510f;
+			cursor: pointer;
+		}
+	}
+	.add_img {
+		display: inline-block;
+		padding: 12px 12px;
+	}
+	.media {
+		margin-top: 0;
+		margin-bottom: 30px;
+	}
+	.media-heading {
+		margin-bottom: 5px;
+		font-size: 15px;
+		line-height: 18px;
+	}
+	.media-date {
+		color: #b2b0b0;
+	}
+	.adv_img {
+		display: inline-block;
+	}
+	hr {
+		border-color: #e0e0e0;
 	}
 }
 .widget_adv {
@@ -1318,14 +1328,6 @@ section {
 	}
 }
 .divider {
-	display: inline-block;
-	vertical-align: baseline;
-	zoom: 1;
-	width: 98%;
-	position: relative;
-	text-align: right;
-	text-transform: uppercase;
-	font-size: 11px;
 	&::after {
 		content: '';
 		display: block;
@@ -1386,11 +1388,15 @@ section {
 	background-color: #5f35ac;
 	color: #fff;
 }
-.pagination_section {
-	border-top: 1px solid #eee;
-	border-bottom: 1px solid #eee;
-	margin-top: 30px;
-	margin-bottom: 30px;
+pagination {
+	style {
+		.pagination_section {
+			border-top: 1px solid #eee;
+			border-bottom: 1px solid #eee;
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+	}
 }
 .pagination {
 	>li {
@@ -1430,12 +1436,10 @@ section {
 		}
 	}
 }
-.footer_section {
-	padding: 30px;
-	.widget_photos {
-		img {
-			border: none;
-			padding: 1px;
+footer-top {
+	style {
+		.footer_section {
+			padding: 30px;
 		}
 	}
 }
@@ -1484,6 +1488,14 @@ section {
 		margin-bottom: 10px;
 	}
 }
+.footer_section {
+	.widget_photos {
+		img {
+			border: none;
+			padding: 1px;
+		}
+	}
+}
 .footer_widget_title {
 	h3 {
 		text-transform: uppercase;
@@ -1515,12 +1527,20 @@ section {
 	background-color: #fff;
 	z-index: 3;
 }
+footer {
+	bottom {
+		style {
+			.footer_bottom_Section {
+				border-top: 2px solid #000;
+				padding: 30px 0;
+				text-transform: uppercase;
+				text-align: center;
+				margin-top: 30px;
+			}
+		}
+	}
+}
 .footer_bottom_Section {
-	border-top: 2px solid #000;
-	padding: 30px 0;
-	text-transform: uppercase;
-	text-align: center;
-	margin-top: 30px;
 	p {
 		font-weight: bold;
 		text-shadow: #000;
@@ -1537,30 +1557,7 @@ section {
 		}
 	}
 }
-#preloader {
-	bottom: 0;
-	left: 0;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 9999;
-}
 .crunchify-top {
-	display: none;
-	position: fixed;
-	bottom: 40px;
-	right: 15px;
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
-	background-color: rgb(58, 200, 222);
-	text-decoration: none;
-	border-radius: 4px;
-	color: #fff;
-	font-size: 20px;
-	text-align: center;
-	cursor: pointer;
-	z-index: 333;
 	&:hover {
 		background-color: rgb(49, 160, 177);
 		color: #fff;
