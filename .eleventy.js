@@ -1,3 +1,4 @@
+import 'bootstrap';
 const path = require('path');
 const PluginFootnotes = require('eleventy-plugin-footnotes');
 const {
