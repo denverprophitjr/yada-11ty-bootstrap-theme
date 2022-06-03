@@ -19,8 +19,8 @@ module.exports = {
   // https://github.com/webpack-contrib/css-loader
   devtool: isDev ? 'cheap-module-source-map' : 'source-map',
   entry: [
-    path.resolve(__dirname, 'src/assets/scripts/index.js'),
-    path.resolve(__dirname, 'src/assets/styles/index.scss')
+    path.resolve(__dirname, 'src/assets/js/index.js'),
+    path.resolve(__dirname, 'src/assets/scss/main.scss')
   ],
   output: {
     filename: isDev ? '[name].js' : '[name].[contenthash].js',
