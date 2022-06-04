@@ -15,8 +15,29 @@ module.exports = (api) =>
           ]
         ]
       }
+
     : {
         // Only transforms new dev syntax like optional chaining
         // or nullish coalescing
-        presets: ['@babel/env']
+        presets: ['@babel/env'],
+    "plugins": [
+    [
+      "prismjs", {
+        "languages": [
+          "css",
+          "hsts",
+          "javascript",
+          "json",
+          "liquid",
+          "markdown",
+          "nginx",
+          "sass",
+          "yaml"
+        ],
+        "plugins": [
+          "show-language"
+        ]
+      }
+    ]
+  ]
       };
