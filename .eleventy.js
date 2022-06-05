@@ -1,4 +1,5 @@
 const path = require('path');
+
 const {
   asideShortcode,
   imageShortcode,
@@ -7,6 +8,7 @@ const {
   quoteShortcode,
   faviconShortcode,
 } = require('./_11ty/shortcodes');
+
 const {
   limit,
   sortByKey,
@@ -21,23 +23,23 @@ const {
   pathParse,
   pathJoin,
 } = require('./_11ty/filters/');
+
 const {
   getAllPosts,
   getAllUniqueCategories,
   getPostsByCategory,
   getPopularCategories,
 } = require('./_11ty/collections/');
+
 const {
     markdownLib,
     syntaxHighlighter,
     pluginFootnotes,
 } = require('./_11ty/plugins/');
 
-
 const { dir, imagePaths, scriptDirs } = require('./_11ty/constants');
 const { slugifyString } = require('./_11ty/utils');
 const { escape } = require('lodash');
-
 const TEMPLATE_ENGINE = 'njk';
 
 module.exports = (eleventyConfig) => {
