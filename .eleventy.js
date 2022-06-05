@@ -1,5 +1,4 @@
 const path = require('path');
-const PluginFootnotes = require('eleventy-plugin-footnotes');
 const {
   asideShortcode,
   imageShortcode,
@@ -31,6 +30,7 @@ const {
 const {
     markdownLib,
     syntaxHighlighter,
+    PluginFootnotes,
 } = require('./_11ty/plugins/');
 
 
