@@ -35,7 +35,7 @@
     "clean": "rimraf '_site/!(assets)' '_site/assets/!(images)'",
     "debug": "DEBUG=Eleventy* ELEVENTY_ENV=development npx @11ty/eleventy --serve --incremental --port=4001",
     "format": "prettier --write **/*.{js,s?css,yml} !_site",
-    "start": "cross-env NODE_ENV=development npm-run-all -l clean --parallel start:* test:* update-browserlist",
+    "start": "cross-env NODE_ENV=development npm-run-all -l clean --parallel start:* test:*",
     "start:webpack": "npx webpack",
     "start:eleventy": "ELEVENTY_ENV=development npx eleventy --serve",
     "build": "cross-env NODE_ENV=production npm-run-all -l clean build:*",
