@@ -30,7 +30,7 @@ const {
 const {
     markdownLib,
     syntaxHighlighter,
-    PluginFootnotes,
+    pluginFootnotes,
 } = require('./_11ty/plugins/');
 
 
