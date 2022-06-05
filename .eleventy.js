@@ -87,17 +87,10 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addCollection('popularCategories', getPopularCategories({ limit: 10, minCount: 5 }));
 
   // Plugins
-  eleventyConfig.addPlugin(PluginFootnotes, {
-    baseClass: 'footnotes',
-    classes: {
-      container: 'rhythm',
-      list: 'list',
-    },
-    title: 'Footnotes',
-    titleId: 'footnotes-label',
-    backLinkLabel: (footnote, index) => `Back to reference ${index + 1}`,
-  });
-  
+  eleventyConfig.addPlugin(PluginFootnotes, pluginFootnotes);
+  eleventyConfig.addPlugin(syntaxHighlighter, syntaxHighlighter);
+  eleventyConfig.addPlugin(markdownLib, markdownLib);
+    
   eleventyConfig.setLibrary('md', markdownLib);
 
   return {
