@@ -63,7 +63,7 @@
     "@babel/preset-env": "^7.12.10",
     "@toycode/markdown-it-class": "^1.2.4",
     "babel-loader": "^8.2.2",
-    "babel-plugin-prismjs", "^2.1.0",
+    "babel-plugin-prismjs": "^2.1.0",
     "css-minimizer-webpack-plugin": "^4.0.0",
     "cheerio": "^1.0.0-rc.3",
     "classnames": "^2.3.1",
