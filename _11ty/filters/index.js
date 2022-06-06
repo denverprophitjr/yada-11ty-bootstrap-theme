@@ -1,8 +1,8 @@
 const lodash = require('lodash');
 const dayjs = require('dayjs');
-const markdownLib = require('./../plugins/markdown');
+const markdownLib = require('./../plugins/markdownIt');
 const site = require('../../src/_data/metadata.json');
-const { throwIfNotType } = require('../utils');
+const { throwIfNotType } = require('./../utils.js');
 
 /** Returns the first `limit` elements of the the given array. */
 const limit = (array, limit) => {

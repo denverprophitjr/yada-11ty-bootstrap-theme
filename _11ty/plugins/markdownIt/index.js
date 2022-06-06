@@ -2,7 +2,7 @@ const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItTocDoneRight = require('markdown-it-toc-done-right');
 const markdownItLinkAttributes = require('markdown-it-link-attributes');
-const { slugifyString } = require('../utils');
+const { slugifyString } = require('./../../utils');
 
 const markdownLib = markdownIt({
   html: true,
