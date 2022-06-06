@@ -1,6 +1,6 @@
 const lodash = require('lodash');
 const dayjs = require('dayjs');
-const markdownLib = require('../plugins/markdown');
+const markdownLib = require('./../plugins/markdown');
 const site = require('../../src/_data/metadata.json');
 const { throwIfNotType } = require('../utils');
 
