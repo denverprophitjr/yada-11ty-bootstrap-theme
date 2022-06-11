@@ -1,4 +1,4 @@
-const markdownLib = require('../../plugins/markdown');
+const markdownLib = require('../../plugins/markdownIt');
 const outdent = require('outdent');
 
 const aside = (children) => {

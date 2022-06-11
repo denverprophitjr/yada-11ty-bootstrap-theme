@@ -1,7 +1,7 @@
 const { escape } = require('lodash');
 const { outdent } = require('outdent');
 const { newlineToBr } = require('../../filters');
-const markdownLib = require('../../plugins/markdown');
+const markdownLib = require('../../plugins/markdownIt');
 
 const quote = (children, source, cite) => {
   if (!/https?:\/\//.test(cite)) {
