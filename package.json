@@ -29,9 +29,9 @@
     "yarn": ">=1.22.18"
   },
   "scripts": {
-    "analyze": "npm-run-all build analyze:*",
+    "analyze": "npx npm-run-all build:* analyze:*",
     "analyze:js": "source-map-explorer _site/**/*.js _site/**/*.js.map",
-    "clean:all": "rimraf _site",
+    "clean:all": "npx rimraf _site",
     "clean": "rimraf '_site/!(assets)' '_site/assets/!(images)'",
     "debug": "DEBUG=Eleventy* ELEVENTY_ENV=development npx @11ty/eleventy --serve --incremental --port=4001",
     "format": "prettier --write **/*.{js,s?css,yml} !_site",
@@ -39,7 +39,7 @@
     "start:webpack": "npx webpack",
     "start:eleventy": "ELEVENTY_ENV=development npx eleventy --serve",
     "build": "npx cross-env NODE_ENV=production npm-run-all -l clean: build:*",
-    "build:webpack": "webpack --watch",
+    "build:webpack": "npx webpack --watch",
     "build:eleventy": " ELEVENTY_ENV=production npx eleventy",
     "lint": "npm-run-all lint:*",
     "lint:fix": "npm-run-all --parallel lint:*:fix",
