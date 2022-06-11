@@ -99,12 +99,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.setLibrary('md', markdownLib);
 
   return {
-   dir: {
-      input: "src",
-      includes: "_includes",
-      data: "_data",
-      output: "_site"
-    },
+    dir,
     dataTemplateEngine: TEMPLATE_ENGINE,
     markdownTemplateEngine: TEMPLATE_ENGINE,
     htmlTemplateEngine: TEMPLATE_ENGINE,
