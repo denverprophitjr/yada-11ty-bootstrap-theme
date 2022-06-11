@@ -38,3 +38,5 @@ node_modules/
 .gitignore
 node_modules
 package-lock.json
+
+_site/

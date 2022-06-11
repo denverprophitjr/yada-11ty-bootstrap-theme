@@ -43,7 +43,7 @@
     "build:eleventy": " ELEVENTY_ENV=production npx eleventy",
     "lint": "npm-run-all lint:*",
     "lint:fix": "npm-run-all --parallel lint:*:fix",
-    "lint:css": "npx stylelint \"src/**/*.scss\"",
+    "lint:css": "npx stylelint src/scss/*.scss",
     "lint:css:fix": "npx stylelint --fix \"src/**/*.scss\"",
     "lint:js": "npx eslint --cache \"**/*.js\"",
     "lint:js:fix": "npx eslint --cache --fix \"**/*.js\"",
@@ -57,6 +57,7 @@
     "@11ty/eleventy-img": "^2.0.1",
     "@11ty/eleventy-navigation": "^0.3.3",
     "@11ty/eleventy-plugin-rss": "^1.0.7",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "@11ty/eleventy-upgrade-help": "^1.0.1",
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
@@ -129,5 +130,8 @@
   "lint-staged": {
     "*.js": "npm run lint:js:fix",
     "*.scss": "npm run lint:css:fix"
+  },
+  "overrides": {
+    "autoprefixer": "10.4.5"
   }
 }

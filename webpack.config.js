@@ -1,11 +1,16 @@
 const path = require('path');
+const glob = require('glob');
 const TerserPlugin = require('terser-webpack-plugin');
 const PostCSSPresetEnv = require('postcss-preset-env');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 const isDev = process.env.NODE_ENV !== 'production';
+const PATHS = {
+  src: path.join(__dirname, 'src')
+}
 
 module.exports = {
   mode: isDev ? 'development' : 'production',
@@ -27,11 +32,26 @@ module.exports = {
     path: path.resolve(__dirname, '_site/assets'),
     publicPath: '/assets/'
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true
+        }
+      }
+    }
+  },
   plugins: [
     new WebpackManifestPlugin(),
     new MiniCssExtractPlugin({
       filename: isDev ? '[name].css' : '[name].[contenthash].css'
-    })
+    }),
+        new PurgecssPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
+    }),
   ],
   ...(!isDev && {
     optimization: {

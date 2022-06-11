@@ -1,4 +1,6 @@
 const path = require('path');
+const footnotes = require('eleventy-plugin-footnotes');
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 
 const {
   asideShortcode,
@@ -33,8 +35,6 @@ const {
 
 const {
     markdownLib,
-    syntaxHighlighter,
-    pluginFootnotes,
 } = require('./_11ty/plugins/');
 
 const { dir, imagePaths, scriptDirs } = require('./_11ty/constants');
@@ -89,14 +89,13 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addCollection('popularCategories', getPopularCategories({ limit: 10, minCount: 5 }));
 
   // Plugins
-  eleventyConfig.addPlugin(PluginFootnotes, pluginFootnotes);
-  eleventyConfig.addPlugin(syntaxHighlighter, syntaxHighlighter);
-  eleventyConfig.addPlugin(markdownLib, markdownLib);
-  
+  eleventyConfig.addPlugin(footnotes);
+  eleventyConfig.addPlugin(syntaxHighlight);
+
   // Template Aliases
   eleventyConfig.addLayoutAlias('post', 'layouts/post.njk');
   eleventyConfig.addLayoutAlias('home', 'layouts/home.njk');
-  
+
   eleventyConfig.setLibrary('md', markdownLib);
 
   return {
