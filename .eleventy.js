@@ -1,5 +1,5 @@
 const path = require('path');
-const footnotes = require('eleventy-plugin-footnotes');
+const PluginFootnotes = require('eleventy-plugin-footnotes');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 
 const {
@@ -89,7 +89,20 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addCollection('popularCategories', getPopularCategories({ limit: 10, minCount: 5 }));
 
   // Plugins
-  eleventyConfig.addPlugin(footnotes);
+  eleventyConfig.addPlugin(PluginFootnotes, {
+    baseClass: 'bem',
+    classes: {
+    container: 'card text-left',
+    title: 'card-header card-title',
+    ref: 'nav-link',
+    list: 'nav nav-tabs card-header-tabs ',
+    listItem: 'nav-item',
+    backLink: 'nav-link',
+    },
+    title: 'Footnotes',     
+    titleId: 'footnotes-label',
+    backLinkLabel: (footnote, index) => `Back to reference ${index + 1}`,
+  });
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // Template Aliases
@@ -98,6 +111,29 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.setLibrary('md', markdownLib);
 
+const dir = {
+  input: 'src',
+  output: '_site',
+  includes: '_includes',
+  layouts: '_layouts',
+  data: '_data',
+  assets: 'assets',
+};
+
+const imagePaths = {
+  input: path.join(dir.input, dir.assets, 'images'),
+  output: path.join(dir.output, dir.assets, 'images'),
+};
+
+const scriptDirs = {
+  input: path.join(dir.input, dir.assets, 'js'),
+  output: path.join(dir.output, dir.assets, 'js'),
+};
+  return {
+  dir,
+  imagePaths,
+  scriptDirs,
+};
   return {
     dir,
     dataTemplateEngine: TEMPLATE_ENGINE,
