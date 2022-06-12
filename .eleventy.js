@@ -128,11 +128,20 @@ const dir = {
   assets: 'assets',
 };
 
- return {
-  dir,
-  dataTemplateEngine: TEMPLATE_ENGINE,
-  markdownTemplateEngine: TEMPLATE_ENGINE,
-  htmlTemplateEngine: TEMPLATE_ENGINE,
-  templateFormats: ['html', 'md', TEMPLATE_ENGINE],
+  return {
+    dir: {
+      input: 'src',
+      output: '_site',
+      includes: '_includes',
+      layouts: '_layouts',
+      data: '_data',
+      assets: 'assets',
+    },
+   imagePaths,
+   scriptDirs, 
+   dataTemplateEngine: TEMPLATE_ENGINE,
+   markdownTemplateEngine: TEMPLATE_ENGINE,
+   htmlTemplateEngine: TEMPLATE_ENGINE,
+   templateFormats: ['html', 'md', TEMPLATE_ENGINE],
   };
 };
