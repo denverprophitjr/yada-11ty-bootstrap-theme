@@ -37,7 +37,6 @@ const {
     markdownLib,
 } = require('./_11ty/plugins/');
 
-const { dir, imagePaths, scriptDirs } = require('./_11ty/contants');
 const { slugifyString } = require('./_11ty/utils');
 const { escape } = require('lodash');
 const TEMPLATE_ENGINE = 'njk';
