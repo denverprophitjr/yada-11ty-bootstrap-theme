@@ -1,6 +1,15 @@
 const path = require('path');
 const PluginFootnotes = require('eleventy-plugin-footnotes');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
+const imagePaths = {
+  input: path.join(dir.input, dir.assets, 'images'),
+  output: path.join(dir.output, dir.assets, 'images'),
+};
+
+const scriptDirs = {
+  input: path.join(dir.input, dir.assets, 'js'),
+  output: path.join(dir.output, dir.assets, 'js'),
+};
 
 const {
   asideShortcode,
@@ -119,20 +128,8 @@ const dir = {
   assets: 'assets',
 };
 
-const imagePaths = {
-  input: path.join(dir.input, dir.assets, 'images'),
-  output: path.join(dir.output, dir.assets, 'images'),
-};
-
-const scriptDirs = {
-  input: path.join(dir.input, dir.assets, 'js'),
-  output: path.join(dir.output, dir.assets, 'js'),
-};
-
  return {
   dir,
-  imagePaths,
-  scriptDirs,
   dataTemplateEngine: TEMPLATE_ENGINE,
   markdownTemplateEngine: TEMPLATE_ENGINE,
   htmlTemplateEngine: TEMPLATE_ENGINE,
