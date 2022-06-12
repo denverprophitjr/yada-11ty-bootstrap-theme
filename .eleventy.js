@@ -110,14 +110,15 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.setLibrary('md', markdownLib);
   
-  var dir = {
-      input: 'src',
-      output: '_site',
-      includes: '_includes',
-      layouts: '_layouts',
-      data: '_data',
-      assets: 'assets',
-    };
+  let dir = [
+      ['input', 'src'],
+      ['output', '_site'],
+      ['includes', '_includes'],
+      ['layouts', '_layouts'],
+      ['data', '_data'],
+      ['assets', 'assets'],
+    ];
+  
 var imagePaths = {
   input: path.join(dir.input, dir.assets, 'images'),
   output: path.join(dir.output, dir.assets, 'images'),
