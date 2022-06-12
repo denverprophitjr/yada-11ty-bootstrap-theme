@@ -25,7 +25,7 @@ module.exports = {
   devtool: isDev ? 'cheap-module-source-map' : 'source-map',
   entry: [
     path.resolve(__dirname, 'src/assets/js/main.js'),
-    path.resolve(__dirname, 'src/scss/main.scss')
+    path.resolve(__dirname, 'src/assets/styles/main.scss')
   ],
   output: {
     filename: isDev ? '[name].js' : '[name].[contenthash].js',
