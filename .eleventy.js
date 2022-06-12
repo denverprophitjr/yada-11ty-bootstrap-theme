@@ -128,16 +128,14 @@ const scriptDirs = {
   input: path.join(dir.input, dir.assets, 'js'),
   output: path.join(dir.output, dir.assets, 'js'),
 };
-  return {
+
+ return {
   dir,
   imagePaths,
   scriptDirs,
-};
-  return {
-    dir,
-    dataTemplateEngine: TEMPLATE_ENGINE,
-    markdownTemplateEngine: TEMPLATE_ENGINE,
-    htmlTemplateEngine: TEMPLATE_ENGINE,
-    templateFormats: ['html', 'md', TEMPLATE_ENGINE],
+  dataTemplateEngine: TEMPLATE_ENGINE,
+  markdownTemplateEngine: TEMPLATE_ENGINE,
+  htmlTemplateEngine: TEMPLATE_ENGINE,
+  templateFormats: ['html', 'md', TEMPLATE_ENGINE],
   };
 };
