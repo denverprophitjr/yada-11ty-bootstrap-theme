@@ -129,7 +129,7 @@ module.exports = (eleventyConfig) => {
   // Template Aliases
   eleventyConfig.addLayoutAlias('post', '_includes/_layouts/post.njk');
   eleventyConfig.addLayoutAlias('home', '_includes/_layouts/home.njk');
-  eleventyConfig.addLaoutAlias('base', '_includes/_layouts/base.njk');
+  eleventyConfig.addLayoutAlias('base', '_includes/_layouts/base.njk');
 
   eleventyConfig.setLibrary('md', markdownLib);
   
