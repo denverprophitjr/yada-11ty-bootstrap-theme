@@ -1,6 +1,6 @@
 const path = require('path');
 const PluginFootnotes = require('eleventy-plugin-footnotes');
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
 const {
   asideShortcode,
