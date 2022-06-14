@@ -138,6 +138,6 @@ module.exports = (eleventyConfig) => {
     dataTemplateEngine: TEMPLATE_ENGINE,
     markdownTemplateEngine: TEMPLATE_ENGINE,
     htmlTemplateEngine: TEMPLATE_ENGINE,
-    templateFormats: ['html', 'md', TEMPLATE_ENGINE],
+    templateFormats: ['html', 'md', 'liquid', TEMPLATE_ENGINE],
   };
 };
