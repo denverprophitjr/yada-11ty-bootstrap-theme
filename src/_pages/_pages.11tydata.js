@@ -3,7 +3,7 @@ const { toAbsoluteImageUrl } = require('../../_11ty/filters/filters');
 
 module.exports = {
   layout: 'article',
-  permalink: (data) => `/articles/${data?.page?.fileSlug}/`,
+  permalink: (data) => `/${data?.page?.fileSlug}/`,
   isBlogPage: false,
   isPost: true,
   eleventyComputed: {
