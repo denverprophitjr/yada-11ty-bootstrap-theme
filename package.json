@@ -60,7 +60,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "@11ty/eleventy-upgrade-help": "^1.0.1",
     "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
+    "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.12.10",
     "@toycode/markdown-it-class": "^1.2.4",
     "babel-loader": "^8.2.2",
