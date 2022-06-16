@@ -1,9 +1,8 @@
 const slugify = require('slugify');
-const { dir } = require('./constants');
 
 /** Returns an array of all blog posts. */
 const getAllPosts = (collection) => {
-  return collection.getFilteredByGlob(`${dir.input}/_posts/*.md`);
+  return collection.getFilteredByGlob(`${dir.input}/_posts/*.md`, `${dir.input}/_pages/*.md`);
 };
 
 /**
