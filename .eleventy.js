@@ -117,8 +117,6 @@ module.exports = (eleventyConfig) => {
   
   return {
     dir,
-    imagePaths,
-    scriptDirs, 
     dataTemplateEngine: TEMPLATE_ENGINE,
     markdownTemplateEngine: TEMPLATE_ENGINE,
     htmlTemplateEngine: TEMPLATE_ENGINE,
