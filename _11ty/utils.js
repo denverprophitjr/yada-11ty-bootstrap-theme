@@ -1,4 +1,12 @@
 const slugify = require('slugify');
+var dir = {
+  input: 'src',
+  output: '_site',
+  includes: '_includes',
+  layouts: '_layouts',
+  data: '_data',
+  assets: 'assets',
+};
 
 /** Returns an array of all blog posts. */
 const getAllPosts = (collection) => {
