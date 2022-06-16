@@ -1,25 +1,7 @@
 const path = require('path');
 const PluginFootnotes = require('eleventy-plugin-footnotes');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-
-var dir = {
-  input: 'src',
-  output: '_site',
-  includes: '_includes',
-  layouts: '_layouts',
-  data: '_data',
-  assets: 'assets',
-};
-
-var imagePaths = {
-  input: path.join(dir.input, dir.assets, 'images'),
-  output: path.join(dir.output, dir.assets, 'images'),
-};
-
-var scriptDirs = {
-  input: path.join(dir.input, dir.assets, 'js'),
-  output: path.join(dir.output, dir.assets, 'js'),
-};
+const { dir, imagePaths, scriptDirs } = require('./config/constants');
 
 console.table(dir);
 console.table(imagePaths);
