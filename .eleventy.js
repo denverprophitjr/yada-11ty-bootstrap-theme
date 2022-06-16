@@ -1,7 +1,7 @@
 const path = require('path');
 const PluginFootnotes = require('eleventy-plugin-footnotes');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const { dir, imagePaths, scriptDirs } = require('./11ty/constants');
+const { dir, imagePaths, scriptDirs } = require('./_11ty/constants');
 
 console.table(dir);
 console.table(imagePaths);
