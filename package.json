@@ -33,7 +33,7 @@
     "analyze:js": "source-map-explorer _site/**/*.js _site/**/*.js.map",
     "clean:all": "npx rimraf _site",
     "clean": "rimraf '_site/!(assets)' '_site/assets/!(images)'",
-    "debug": "DEBUG=Eleventy* ELEVENTY_ENV=development npx @11ty/eleventy --serve --incremental --port=4001",
+    "debug": "DEBUG=Eleventy* ELEVENTY_ENV=development npx eleventy --serve --incremental --port=4001",
     "format": "prettier --write **/*.{js,s?css,yml} !_site",
     "start": "npx cross-env NODE_ENV=development rpx run-p -l clean:all start:* test:*",
     "start:webpack": "npx webpack",
