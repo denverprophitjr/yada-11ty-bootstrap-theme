@@ -74,7 +74,7 @@
     "dayjs": "^1.11.2",
     "eleventy-plugin-error-overlay": "^1.0.0",
     "eleventy-plugin-footnotes": "^0.10.0",
-    "eslint": "^8.17.0",
+    "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "feather-icons": "^4.28.0",
